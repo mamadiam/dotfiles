@@ -119,10 +119,10 @@ SAVEHIST=10000                # Number of commands to save in history file
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export JFROG_URL="https://artifactory.stagingportal.smartqare.cloud/artifactory/gradle-dev"
 export JFROG_USERNAME="mohammad.haddad"
-export JFROG_PASSWORD="jhpUP7N4eDOhhltWViCF"
+export JFROG_PASSWORD=""
 export CI_REGISTRY="registry.gitlab.com"
 export CI_REGISTRY_USER="mohaddad"
-export CI_REGISTRY_PASSWORD="glpat-441roJ9CB3EBY5KoVSHc"
+export CI_REGISTRY_PASSWORD=""
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -135,8 +135,8 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH:
 alias sso-staging="aws sso login --profile staging"
 alias sso-prod='aws sso login --profile production'
 alias sso-shared='aws sso login --profile shared-services'
-alias kube-shared='kubectl config use-context arn:aws:eks:eu-west-1:515966525730:cluster/SharedServicesEKS'
-alias kube-staging='kubectl config use-context arn:aws:eks:eu-west-1:025066276961:cluster/staging-stack'
-alias kube-prod='kubectl config use-context arn:aws:eks:eu-west-1:515966539729:cluster/prd-stack'
+alias kube-shared='kubectl config use-context'
+alias kube-staging='kubectl config use-context '
+alias kube-prod='kubectl config use-context arn:aws:eks:eu-west-1'
 alias which-kube='kubectl config get-contexts'
 alias ls='lsd -lha'
