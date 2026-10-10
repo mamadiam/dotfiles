@@ -62,7 +62,7 @@ with a 力 seal. Design language adapted from [Ryoku](https://ryoku.dev)
 
 | App | sumi | catppuccin |
 |---|---|---|
-| ghostty | custom theme `sumi` (SpaceMono Nerd Font) | built-in `catppuccin-mocha` |
+| ghostty | custom theme `sumi` (JetBrainsMono Nerd Font) | built-in `catppuccin-mocha` |
 | tmux | hand-rolled statusline | hand-rolled statusline |
 | sketchybar | `colors.lua` tokens, radius 6, vermillion seal | mauve accent, radius 9 |
 | starship | `sumi` palette | `catppuccin_mocha` palette |

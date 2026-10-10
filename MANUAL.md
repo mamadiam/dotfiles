@@ -128,7 +128,7 @@ Everything lives in `sketchybar/.config/sketchybar/`: `colors.lua` is the token 
 
 ## 5. The terminal
 
-**Ghostty** draws it: sumi or themed colors, SpaceMono Nerd Font, copy-on-select.
+**Ghostty** draws it: sumi or themed colors, JetBrainsMono Nerd Font, copy-on-select.
 
 **Plain zsh** runs it — deliberately no oh-my-zsh. What you get instead:
 
@@ -167,7 +167,7 @@ What a theme switch touches: Ghostty colors, the whole SketchyBar, the tmux stat
 | Ink | `#cdc4ba` warm bone | `#cdd6f4` lavender-white | `#c0caf5` |
 | Accent | `#e2342a` vermillion | `#cba6f7` mauve | `#bb9af7` neon purple |
 | Corners | 6, near-square | 9 | 9 |
-| Terminal font | SpaceMono Nerd Font | JetBrainsMono NF | JetBrainsMono NF |
+| Terminal font | JetBrainsMono Nerd Font | JetBrainsMono NF | JetBrainsMono NF |
 
 *sumi* is the signature: **emphasis is inversion, not color** — selected things flip to a bone plate with dark ink, and the only color is data (battery levels, an alert red) or the accent on the frame. If that reads as austere, that's the point. It's Ryoku's discipline, and `tokyonight` is the party version.
 
