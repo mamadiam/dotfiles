@@ -68,10 +68,10 @@ backspace = ['close-all-windows-but-current', 'mode main']
 5 = 'secondary'
 
 [gaps]
-inner = { horizontal = 4, vertical = 4 }
-# outer.top must clear the sketchybar height (see sketchybar/bar.lua, height = 40) —
+inner = { horizontal = 2, vertical = 2 }
+# outer.top must clear the sketchybar height (see sketchybar/bar.lua, height = 34) —
 # with the macOS menu bar hidden, nothing else reserves that space
-outer = { left = 4, bottom = 4, top = 40, right = 4 }
+outer = { left = 2, bottom = 2, top = 34, right = 2 }
 
 # --- App → workspace auto-assignment (uncomment and adapt) -------------------
 # Fires when a window matching the regex appears.
