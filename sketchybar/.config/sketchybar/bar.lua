@@ -4,14 +4,14 @@
 local colors = require("colors")
 
 -- Equivalent to the --bar domain
--- Flat bar: solid strip, full screen width, flush with the top edge.
+-- Invisible bar: the items float directly on the desktop.
 sbar.bar({
   height = 30,
   corner_radius = 0,
   shadow = false,
   border_width = 0,
-  border_color = colors.bar.bg,
-  color = colors.bar.bg,
+  border_color = colors.transparent,
+  color = colors.transparent,
   padding_right = 8,
   padding_left = 8,
 })
