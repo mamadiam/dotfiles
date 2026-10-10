@@ -71,7 +71,7 @@ with a 力 seal. Design language adapted from [Ryoku](https://ryoku.dev)
 | borders | vermillion frame | mauve frame |
 
 Palette source of truth: `scripts/theme.sh` (simple lines) + `themes/` (complex
-formats). Type system: Fraunces / Space Grotesk / SpaceMono NF / Noto Sans CJK.
+formats). Type system: Fraunces / Space Grotesk / JetBrainsMono NF / Noto Sans CJK.
 
 ## Key cheatsheet
 | Where | Keys |
