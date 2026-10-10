@@ -11,6 +11,7 @@ log "Dock"
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock tilesize -int 28
+defaults write com.apple.dock largesize -int 32
 defaults write com.apple.dock mineffect -string "scale"
 defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock orientation -string "left"
