@@ -22,7 +22,9 @@ local wifi = sbar.add("item", "widgets.wifi", {
   updates = true,
 })
 
-
+sbar.add("bracket", { wifi.name }, {
+  background = { color = colors.bg1 }
+})
 
 sbar.add("item", "widgets.wifi.padding", {
   position = "right",

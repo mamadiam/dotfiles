@@ -42,7 +42,7 @@ local function update(focused)
     spaces[i]:set({
       icon = { highlight = selected },
       label = { highlight = selected, string = icon_line_for(i) },
-      
+      background = { border_color = selected and colors.accent or colors.bg2 },
     })
   end
 end
@@ -66,13 +66,23 @@ for i = 1, WORKSPACE_COUNT do
     },
     padding_left = 1,
     padding_right = 1,
-    background = { drawing = false },
+    background = {
+      color = colors.bg1,
+      border_width = 1,
+      height = 26,
+      border_color = colors.bg2,
+    },
   })
   spaces[i] = space
 
   -- Single item bracket for a double border on highlight
   sbar.add("bracket", { space.name }, {
-    background = { drawing = false }
+    background = {
+      color = colors.transparent,
+      border_color = colors.bg2,
+      height = 28,
+      border_width = 2,
+    }
   })
 
   -- Padding between workspace items
