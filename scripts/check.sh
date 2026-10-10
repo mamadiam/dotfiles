@@ -12,7 +12,7 @@ while IFS= read -r -d '' f; do
 done < <(find "$DOTFILES" -name '*.sh' -not -path "*/plugins/*" -print0)
 
 log "Checking zsh config"
-zsh -n "$DOTFILES/zsh/.zshrc" && ok "zsh/.zshrc" || bad "zsh/.zshrc"
+zsh -n "$DOTFILES/home/.zshrc" && ok "home/.zshrc" || bad "home/.zshrc"
 
 PY=""
 for cand in python3 python3.14 /opt/homebrew/bin/python3.14; do
@@ -26,7 +26,7 @@ while IFS= read -r -d '' f; do
 done < <(find "$DOTFILES" -name '*.toml' -print0)
 
 log "Checking btop.conf (loose TOML)"
-{ [[ -n "$PY" ]] && "$PY" -c "import tomllib; tomllib.load(open('$DOTFILES/btop/.config/btop/btop.conf','rb'))"; } \
+{ [[ -n "$PY" ]] && "$PY" -c "import tomllib; tomllib.load(open('$DOTFILES/.config/btop/btop.conf','rb'))"; } \
   && ok "btop.conf" || { [[ -z "$PY" ]] && warn "btop.conf (skipped)"; [[ -n "$PY" ]] && bad "btop.conf"; }
 
 log "Checking JSON configs"
