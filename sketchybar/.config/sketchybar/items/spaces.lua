@@ -97,15 +97,15 @@ end
 
 -- Hidden observer: reacts to the custom aerospace_change event.
 -- aerospace.toml fires it via:
---   exec-on-workspace-change = ['exec-and-forget sketchybar --trigger aerospace_change']
--- which exports AEROSPACE_FOCUSED_WORKSPACE to this callback.
+--   exec-on-workspace-change = ['/bin/bash', '-c', 'sketchybar --trigger aerospace_change']
+-- We don't trust the trigger's env handoff into Lua — ask AeroSpace directly.
 local observer = sbar.add("item", {
   drawing = false,
   updates = true,
 })
 
-observer:subscribe("aerospace_change", function(env)
-  update(env.AEROSPACE_FOCUSED_WORKSPACE)
+observer:subscribe("aerospace_change", function(_)
+  update(focused_workspace())
 end)
 
 -- Initial state (aerospace may not be running yet — then highlight nothing)
