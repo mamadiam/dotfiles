@@ -18,7 +18,7 @@ return {
   sun = 0xffbb9af7,
 
   bar = {
-    bg = 0xd91a1b26, -- translucent indigo — the wallpaper glows through
+    bg = 0xff1a1b26, -- solid indigo
     border = 0xff1a1b26,
   },
   popup = {

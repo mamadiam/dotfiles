@@ -16,7 +16,7 @@ return {
   sun = 0xffcba6f7,
 
   bar = {
-    bg = 0xf01e1e2e, -- base, slight transparency
+    bg = 0xff1e1e2e, -- solid base
     border = 0xff1e1e2e,
   },
   popup = {
