@@ -88,13 +88,13 @@ backspace = ['close-all-windows-but-current', 'mode main']
 
 [gaps]
 inner = { horizontal = 8, vertical = 8 }
-# outer.top must clear the sketchybar height (see sketchybar/bar.lua, height = 34) —
+# outer.top per monitor: clears the floating bar (34px footprint incl. offset) —
 # with the macOS menu bar hidden, nothing else reserves that space
 # NOTE: macOS 27 still reserves ~28px for the menu bar behind sketchybar.
 # top = 34 - 28 = 6 makes windows sit flush under the bar. If you ever hide
 # the menu bar properly (Control Center -> autohide), raise top back to 34.
 # per-monitor top: built-in (notch + menu-bar reserve) vs external (clean)
-outer.top = [{ monitor.main = 18 }, 14]
+outer.top = [{ monitor.main = 18 }, 38]
 outer.left = 8
 outer.bottom = 8
 outer.right = 8
