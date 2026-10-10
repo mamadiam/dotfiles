@@ -105,26 +105,35 @@ Uncomment the `[on-window-detected]` block at the bottom of `aerospace/.config/a
 
 ## 4. The top bar — SketchyBar
 
-The bar is not a menu bar. It's a live instrument, configured entirely in Lua:
+The bar config is vendored from [john-json/dotfiles](https://github.com/john-json/dotfiles)
+(MIT; originally FelixKratz-style, adapted) — a three-section layout:
 
 ```
-力  1  2  3  4  5    FRONT-APP            media · volume · battery · wifi · clock
-└ seal  └ workspaces with app icons         └ right side widgets
+(力 menu) (space dots ·· ●·· ··○··)   [ FRONT-APP ]   (media) (cpu) (vol) (wifi) (cal) (clock)
+└ left: spaces as colored dots          └ center          └ right: widgets
 ```
 
-- **The seal** (`力`, "power") — the brand mark. Purple/vermillion depending on theme.
-- **Workspaces 1–5** — live app icons per workspace (via the sketchybar-app-font), the active one glowing in the accent color. **Click to jump.**
-- **Media strip** — grows the artist/title when music plays, with transport controls on hover.
-- **Volume** — scroll to change, click for the device picker popup, right-click for Sound settings.
-- **Battery** — color shifts green → ochre → red as it drains; click for time remaining.
-- **Wifi** — SSID on hover, click for Network settings.
-- **Clock** — day, date, time. Click opens Calendar.
+- **Spaces = colored dots in the center**, one color per workspace
+  (red/orange/yellow/magenta/blue), smooth color transitions on switch,
+  hover expansion, click to jump. Driven by AeroSpace via the
+  `aerospace_change` event.
+- **front_app** sits centered too — note the Dynamic Island floats over that
+  spot; `launchctl bootout gui/$(id -u)/git.crissnb.dynamic-island` if you
+  want the front-app name unobstructed.
+- **Widgets**: media with artwork, cpu (compiled C helper), volume with
+  device picker, wifi, calendar via icalBuddy, clock. Weather + search +
+  menus popups from the original config.
+- **Dark/light auto-switching**: `colors.lua` reads the macOS appearance and
+  loads `colors_dark.lua` / `colors_light.lua`.
+- **Compiled helpers**: `helpers/make` builds the cpu/network/menus C
+  binaries on startup (Xcode CLT required).
 
-The system menu bar is hidden (see `macos/defaults.sh`) — the bar you see is *the* bar. AeroSpace's own icon lives in the hidden menu bar; the workspace items in SketchyBar are your real indicator.
+The bar itself is invisible — only the pill plates float. Fonts are
+JetBrainsMono Nerd Font (his config used paid Operator Mono — swapped).
 
-Everything lives in `sketchybar/.config/sketchybar/`: `colors.lua` is the token file (one place for the whole look), `items/` is one file per widget. Change `colors.lua`, then `brew services restart sketchybar`.
-
----
+Everything lives in `sketchybar/.config/sketchybar/`: `colors_dark.lua` /
+`colors_light.lua` are the token files; `items/` is one file per section.
+Change, then `brew services restart sketchybar`.
 
 ## 5. The terminal
 

@@ -1,37 +1,22 @@
--- carbon — muted dark scheme inspired by john-json/dotfiles colors_dark
--- (charcoal surfaces, warm yellow accent, desaturated data colors)
--- Tokens file: this is the one place the bar's look is defined.
-return {
-  black = 0xff111111,
-  white = 0xffcdcdcd,
-  red = 0xffc6755b,
-  green = 0xff98a8a9,
-  blue = 0xffa2aab9,
-  yellow = 0xffdcaf6c,
-  orange = 0xffd09367,
-  magenta = 0xff6a6378,
-  grey = 0xff5a5959,
-  transparent = 0x00000000,
+-- colors.lua
+local function is_dark_mode()
+    local handle = io.popen('defaults read -globalDomain AppleInterfaceStyle')
+    if handle == nil then
+        return false -- Fallback to light mode if popen fails
+    end
 
-  accent = 0xffdcaf6c,
-  sun = 0xffdcaf6c,
+    local result = handle:read("*a")
+    handle:close()
 
-  bar = {
-    bg = 0xf0181818, -- solid charcoal, floats 4px below the top edge
-    border = 0xff232323,
-  },
-  popup = {
-    bg = 0xf0202020,
-    border = 0xff333333,
-  },
-  bg1 = 0xff202020,
-  bg2 = 0xff2a2a2a,
-  line = 0xff2a2a2a,
+    if result == nil then
+        return false -- Fallback to light mode if read fails
+    end
 
-  radius = 6,
+    return result:match("Dark") ~= nil
+end
 
-  with_alpha = function(color, alpha)
-    if alpha > 1.0 or alpha < 0.0 then return color end
-    return (color & 0x00ffffff) | (math.floor(alpha * 255.0) << 24)
-  end,
-}
+if is_dark_mode() then
+    return require("colors_dark")
+else
+    return require("colors_light")
+end

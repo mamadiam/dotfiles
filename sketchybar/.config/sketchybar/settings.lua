@@ -1,20 +1,21 @@
 return {
-  paddings = 3,
-  group_paddings = 5,
+    paddings = 3,
+    group_paddings = 10,
+    height = 28,            -- Height of the bar
 
-  icons = "NerdFont", -- alternatively available: sf-symbols (needs SF fonts)
+    icons = "sf-symbols",   -- Options: "sf-symbols", "nerdfont"
+    animated_icons = false, -- Set to true if you want to use animated icons
 
-  -- JetBrainsMono Nerd Font is installed via the Brewfile
-  font = {
-    text = "JetBrainsMono Nerd Font", -- Used for text
-    numbers = "JetBrainsMono Nerd Font", -- Used for numbers
-    jp = "Noto Sans CJK JP", -- Used for kanji seals
-    style_map = {
-      ["Regular"] = "Regular",
-      ["Semibold"] = "Medium",
-      ["Bold"] = "SemiBold",
-      ["Heavy"] = "Bold",
-      ["Black"] = "ExtraBold",
-    },
-  },
+    font = {
+        text = "JetBrainsMono Nerd Font", -- Used for text
+        numbers = "JetBrainsMono Nerd Font", -- Used for numbers
+        icons = "sf-symbols",                -- Used for icons (or NerdFont)
+        style_map = {
+            ["Regular"] = "Regular",
+            ["Semibold"] = "Medium",
+            ["Bold"] = "SemiBold",
+            ["Heavy"] = "Bold",
+            ["Black"] = "ExtraBold"
+        }
+    }
 }

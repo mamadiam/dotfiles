@@ -1,21 +1,33 @@
--- Vendored from FelixKratz/dotfiles (GPL-3.0) — see LICENSE-NOTE.md
--- https://github.com/FelixKratz/dotfiles/tree/master/.config/sketchybar
-
 local colors = require("colors")
+local settings = require("settings")
+local sbar = require("sketchybar")
 
--- Equivalent to the --bar domain
--- Floating invisible bar: items float 4px below the top edge; only
--- widgets/spaces carry their own pill plates. (john-json style inset)
+-- Load the bar with widgets in the correct position first
 sbar.bar({
-  height = 30,
-  y_offset = 4,
-  corner_radius = 6,
-  shadow = false,
-  border_width = 0,
-  color = colors.transparent,
-  padding_right = 8,
-  padding_left = 8,
+    alpha = 0,
+    y_offset = -50, -- Start off-screen
+    position = "top",
+    height = 30,
+    padding_right = 5,
+    padding_left = 5,
+    color = colors.bar.bg_transparent,
+    margin = 200,
+    corner_radius = 4,
+    shadow = true,
+    blur_radius = 60,
 })
 
-sbar.bar({ alpha = 1 })
+-- Animate with a smooth rubber band effect
+sbar.animate("sin", 15, function()
+    local start_pos = -70
+    local overshoot = 15 -- Drop below before bouncing up
+    local final_pos = 5
 
+    -- Move from start -> overshoot -> final position
+    sbar.bar({ y_offset = final_pos + overshoot })
+
+    -- Bounce back up to final position
+    sbar.animate("sin", 15, function()
+        sbar.bar({ y_offset = final_pos, alpha = 1 })
+    end)
+end)

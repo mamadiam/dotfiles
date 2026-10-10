@@ -65,6 +65,7 @@ brew "powerlevel10k"
 
 # system info TUI (macchina/ package — alias: info)
 brew "macchina"
+brew "ical-buddy"               # calendar events for the sketchybar calendar widget
 
 # sketchybar runtime deps (Lua bar — see sketchybar/ package)
 brew "lua"                      # interpreter for sketchybarrc
