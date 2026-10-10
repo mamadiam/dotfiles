@@ -7,7 +7,7 @@
   <array>
     <string>/bin/bash</string>
     <string>-c</string>
-    <string>exec /opt/homebrew/bin/dynamic-island</string>
+    <string>sleep 5; exec /opt/homebrew/bin/dynamic-island</string>
   </array>
   <key>EnvironmentVariables</key>
   <dict>

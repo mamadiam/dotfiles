@@ -1,35 +1,32 @@
--- tokyo-night — the sexy one. Deep translucent indigo, neon purple accent,
--- vivid data colors. Palette: Tokyo Night (folke/tokyonight.nvim, Apache-2.0).
+-- catppuccin mocha — the alternate palette (switch: scripts/theme.sh catppuccin)
 -- Tokens file: this is the one place the bar's look is defined.
 return {
-  black = 0xff16161e,
-  white = 0xffc0caf5,
-  red = 0xfff7768e,
-  green = 0xff9ece6a,
-  blue = 0xff7aa2f7,
-  yellow = 0xffe0af68,
-  orange = 0xffff9e64,
-  magenta = 0xffbb9af7, -- purple
-  grey = 0xff565f89, -- comment
+  black = 0xff11111b, -- crust
+  white = 0xffcdd6f4, -- text
+  red = 0xfff38ba8,
+  green = 0xffa6e3a1,
+  blue = 0xff89b4fa,
+  yellow = 0xfff9e2af,
+  orange = 0xfffab387, -- peach
+  magenta = 0xffcba6f7, -- mauve
+  grey = 0xff6c7086, -- overlay0
   transparent = 0x00000000,
 
-  -- the accent: neon purple, lives on the frame
-  accent = 0xffbb9af7,
-  sun = 0xffbb9af7,
+  accent = 0xffcba6f7, -- mauve
+  sun = 0xffcba6f7,
 
   bar = {
     bg = 0x00000000, -- invisible
-    border = 0xff1a1b26,
+    border = 0xff1e1e2e,
   },
   popup = {
-    bg = 0xe9292e42,
-    border = 0xff565f89,
+    bg = 0xc01e1e2e,
+    border = 0xff585b70, -- surface2
   },
-  bg1 = 0xff292e42, -- bg_highlight
-  bg2 = 0xff2f334d,
-  line = 0xff2f334d,
+  bg1 = 0xff313244, -- surface0
+  bg2 = 0xff45475a, -- surface1
+  line = 0xff585b70,
 
-  -- geometry token — rounder pills for the night look
   radius = 9,
 
   with_alpha = function(color, alpha)
