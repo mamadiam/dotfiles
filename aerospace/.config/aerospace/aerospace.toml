@@ -68,7 +68,7 @@ backspace = ['close-all-windows-but-current', 'mode main']
 5 = 'secondary'
 
 [gaps]
-inner = { horizontal = 4, vertical = 4 }
+inner = { horizontal = 8, vertical = 8 }
 # outer.top must clear the sketchybar height (see sketchybar/bar.lua, height = 34) —
 # with the macOS menu bar hidden, nothing else reserves that space
 # NOTE: macOS 27 still reserves ~28px for the menu bar behind sketchybar.
