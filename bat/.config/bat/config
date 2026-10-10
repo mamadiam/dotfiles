@@ -1,4 +1,4 @@
 # bat — theme switched by scripts/theme.sh (sumi uses 'ansi' = terminal palette)
---theme=ansi
+--theme="Catppuccin Mocha"
 --style=numbers,changes,header-filename,header-filesize
 --paging=never

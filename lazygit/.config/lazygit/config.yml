@@ -1,5 +1,4 @@
-# lazygit — sumi: paper and ink
-# Bone on black, hairline borders, vermillion selection accent.
+# lazygit — catppuccin mocha (alternate; switch: scripts/theme.sh catppuccin)
 
 gui:
   nerdFontsVersion: "3"
@@ -7,27 +6,27 @@ gui:
   showRandomTip: false
   theme:
     activeBorderColor:
-      - "#e2342a" # vermillion — the frame carries the accent
+      - "#cba6f7" # mauve
       - bold
     inactiveBorderColor:
-      - "#353330" # hairline
+      - "#45475a" # surface1
     searchingActiveBorderColor:
       - "#e2342a"
       - bold
     optionsTextColor:
-      - "#b0a9a0" # inkDim
+      - "#a6adc8" # subtext0
     selectedLineBgColor:
-      - "#2a2522" # bone tint on paper
+      - "#313244" # surface0
     cherryPickedCommitFgColor:
       - "#e2342a"
     cherryPickedCommitBgColor:
-      - "#9daa84"
+      - "#a6e3a1"
     markedBaseCommitFgColor:
-      - "#d8a657"
+      - "#f9e2af"
     unstagedChangesColor:
       - "#e2342a" # an alert is an alert
     defaultFgColor:
-      - "#cdc4ba" # ink
+      - "#cdd6f4" # text
   border: "rounded"
   shadow: false
 

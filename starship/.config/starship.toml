@@ -3,7 +3,7 @@
 # Only what matters: dir, git, duration, language versions, exit status.
 
 add_newline = false
-palette = "sumi"
+palette = "catppuccin_mocha"
 
 [palettes.sumi]
 # paper and ink — warm bone on pure black, vermillion accent

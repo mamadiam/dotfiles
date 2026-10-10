@@ -2,7 +2,7 @@
 # Docs: https://ghostty.org/docs/config
 
 # Theme is built into Ghostty (no import needed)
-theme = sumi
+theme = catppuccin-mocha
 
 # Font: JetBrains Mono Nerd Font (installed via Brewfile)
 font-family = JetBrainsMono Nerd Font
@@ -13,8 +13,20 @@ window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
 
-# Slight transparency over the wallpaper
-background-opacity = 0.97
+# Slight transparency over the wallpaper, with real blur behind it
+background-opacity = 0.95
+background-blur-radius = 60
+
+# No titlebar chrome — the theme IS the chrome
+macos-titlebar-style = hidden
+window-decoration = false
+
+# Quake terminal: global cmd+shift+d drops a terminal from the top
+# (works from ANY app, animated 0.3s)
+quick-terminal-position = top
+quick-terminal-screen = mouse
+quick-terminal-animation-duration = 0.3
+keybind = global:cmd+shift+d=toggle_quick_terminal
 
 # Option acts as Alt (essential for tmux + shell keybindings)
 macos-option-as-alt = true

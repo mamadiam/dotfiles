@@ -28,6 +28,20 @@ alias ls="eza --icons --group-directories-first"
 alias ll="eza -la --icons --group-directories-first --git"
 alias cat="bat --paging=never"
 alias lg="lazygit"
+alias fm="yazi"
+alias vi="nvim"
+alias vim="nvim"
+alias weather='curl wttr.in'
+
+# yazi with cd-on-exit: quit yazi in a dir, the shell follows you there
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
 alias g="git"
 alias ..="cd .."
 alias ...="cd ../.."

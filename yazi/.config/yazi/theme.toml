@@ -1,90 +1,90 @@
-# yazi — sumi: paper and ink
-# Bone on black, vermillion accents, hairline borders.
-# Adapted for this repo; design language from Ryoku (ryoku.dev)
+# yazi — Catppuccin Mocha
+# Adapted from the official catppuccin/yazi flavor (MIT)
+# https://github.com/catppuccin/yazi
 
 [manager]
-cwd = { fg = "#958f87" }
+cwd = { fg = "#89b4fa" }
 
-hovered = { fg = "#000000", bg = "#cdc4ba" }
-preview_hovered = { fg = "#000000", bg = "#cdc4ba" }
+hovered = { fg = "#1e1e2e", bg = "#89b4fa" }
+preview_hovered = { fg = "#1e1e2e", bg = "#89b4fa" }
 
-find_keyword = { fg = "#e2342a", bold = true, underline = true }
-find_position = { fg = "#958f87", bold = true }
+find_keyword = { fg = "#f9e2af", bold = true, italic = true, underline = true }
+find_position = { fg = "#f5c2e7", bold = true, italic = true }
 
-marker_selected = { fg = "#9daa84", bg = "#9daa84" }
-marker_copied = { fg = "#d8a657", bg = "#d8a657" }
-marker_cut = { fg = "#e2342a", bg = "#e2342a" }
+marker_selected = { fg = "#a6e3a1", bg = "#a6e3a1" }
+marker_copied = { fg = "#f9e2af", bg = "#f9e2af" }
+marker_cut = { fg = "#f38ba8", bg = "#f38ba8" }
 
-tab_active = { fg = "#000000", bg = "#cdc4ba" }
-tab_inactive = { fg = "#7a756e", bg = "#0a0a0a" }
+tab_active = { fg = "#1e1e2e", bg = "#cba6f7" }
+tab_inactive = { fg = "#cdd6f4", bg = "#313244" }
 tab_width = 1
 
-count_copied = { fg = "#000000", bg = "#d8a657" }
-count_selected = { fg = "#000000", bg = "#9daa84" }
-count_cut = { fg = "#000000", bg = "#e2342a" }
+count_copied = { fg = "#1e1e2e", bg = "#f9e2af" }
+count_selected = { fg = "#1e1e2e", bg = "#a6e3a1" }
+count_cut = { fg = "#1e1e2e", bg = "#f38ba8" }
 
 border_symbol = "│"
-border_style = { fg = "#353330" }
+border_style = { fg = "#7f849c" }
 
-symlink = { fg = "#8fb5b8", italic = true }
+symlink = { fg = "#89dceb", italic = true }
 
 [status]
 separator_open = ""
 separator_close = ""
-separator_style = { fg = "#0a0a0a", bg = "#0a0a0a" }
+separator_style = { fg = "#313244", bg = "#313244" }
 
-mode_normal = { fg = "#000000", bg = "#cdc4ba", bold = true }
-mode_select = { fg = "#000000", bg = "#9daa84", bold = true }
-mode_unset = { fg = "#000000", bg = "#e2342a", bold = true }
+mode_normal = { fg = "#1e1e2e", bg = "#89b4fa", bold = true }
+mode_select = { fg = "#1e1e2e", bg = "#a6e3a1", bold = true }
+mode_unset = { fg = "#1e1e2e", bg = "#f38ba8", bold = true }
 
-progress_label = { fg = "#cdc4ba", bold = true }
-progress_normal = { fg = "#b0a9a0", bg = "#1a1817" }
-progress_error = { fg = "#e2342a", bg = "#1a1817" }
+progress_label = { fg = "#cdd6f4", bold = true }
+progress_normal = { fg = "#89b4fa", bg = "#313244" }
+progress_error = { fg = "#f38ba8", bg = "#313244" }
 
-permissions_t = { fg = "#7f9dbe" }
-permissions_r = { fg = "#d8a657" }
-permissions_w = { fg = "#e2342a" }
-permissions_x = { fg = "#9daa84" }
-permissions_s = { fg = "#7a756e" }
+permissions_t = { fg = "#89b4fa" }
+permissions_r = { fg = "#f9e2af" }
+permissions_w = { fg = "#f38ba8" }
+permissions_x = { fg = "#a6e3a1" }
+permissions_s = { fg = "#6c7086" }
 
 [input]
-border = { fg = "#b0a9a0" }
+border = { fg = "#cba6f7", bold = true }
 value = {}
 selected = { reversed = true }
 
 [select]
-border = { fg = "#b0a9a0" }
-active = { fg = "#cdc4ba" }
+border = { fg = "#cba6f7", bold = true }
+active = { fg = "#cba6f7" }
 inactive = {}
 
 [which]
 cols = 3
-mask = { bg = "#0a0a0a" }
-cand = { fg = "#cdc4ba" }
-rest = { fg = "#7a756e" }
-desc = { fg = "#958f87" }
+mask = { bg = "#313244" }
+cand = { fg = "#89b4fa" }
+rest = { fg = "#9399b4" }
+desc = { fg = "#f5c2e7" }
 separator = "  "
-separator_style = { fg = "#353330" }
+separator_style = { fg = "#585b70" }
 
 [completion]
-border = { fg = "#b0a9a0" }
-active = { fg = "#000000", bg = "#cdc4ba" }
-inactive = { fg = "#cdc4ba" }
+border = { fg = "#cba6f7", bold = true }
+active = { fg = "#1e1e2e", bg = "#89b4fa" }
+inactive = { fg = "#cdd6f4" }
 
 [notify]
-title_info = { fg = "#7f9dbe" }
-title_warn = { fg = "#d8a657" }
-title_error = { fg = "#e2342a" }
+title_info = { fg = "#89b4fa" }
+title_warn = { fg = "#f9e2af" }
+title_error = { fg = "#f38ba8" }
 
 [filetype]
 rules = [
-  { mime = "image/*", fg = "#8fb5b8" },
-  { mime = "{audio,video}/*", fg = "#c39ac3" },
-  { mime = "application/{zip,rar,7z,tar,gz,xz,zstd,bz2,lzma}", fg = "#d8a657" },
-  { mime = "application/{pdf,doc,rtf}", fg = "#9daa84" },
-  { name = "*Dockerfile*", fg = "#7f9dbe" },
-  { name = "*.md", fg = "#b0a9a0" },
-  { name = "*.toml", fg = "#d8a657" },
-  { name = "*.lock", fg = "#7a756e" },
-  { name = "*/", fg = "#cdc4ba", bold = true },
+  { mime = "image/*", fg = "#89dceb" },
+  { mime = "{audio,video}/*", fg = "#f5c2e7" },
+  { mime = "application/{zip,rar,7z,tar,gz,xz,zstd,bz2,lzma}", fg = "#fab387" },
+  { mime = "application/{pdf,doc,rtf}", fg = "#f9e2af" },
+  { name = "*Dockerfile*", fg = "#89b4fa" },
+  { name = "*.md", fg = "#94e2d5" },
+  { name = "*.toml", fg = "#f9e2af" },
+  { name = "*.lock", fg = "#6c7086" },
+  { name = "*/", fg = "#89b4fa", bold = true },
 ]
