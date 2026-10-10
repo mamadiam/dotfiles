@@ -1,0 +1,7 @@
+# Global gitignore — machine noise, never project noise
+.DS_Store
+*.swp
+*~
+.vscode/
+.idea/
+Thumbs.db

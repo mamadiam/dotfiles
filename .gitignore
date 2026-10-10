@@ -1,0 +1,6 @@
+# never commit machine-local or secret files
+*.local
+*.secret
+secrets/
+dotfiles-backup*/
+.DS_Store

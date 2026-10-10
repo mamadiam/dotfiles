@@ -1,0 +1,10 @@
+#!/bin/bash
+# JankyBorders — focus ring around the active window
+# sumi: the accent lives on the frame — vermillion
+
+style=round
+width=5.0
+hidpi=on
+
+active_color=0xffe2342a
+inactive_color=0x00000000  # transparent

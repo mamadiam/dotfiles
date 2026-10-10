@@ -1,0 +1,27 @@
+# Ghostty terminal — Catppuccin Mocha
+# Docs: https://ghostty.org/docs/config
+
+# Theme is built into Ghostty (no import needed)
+theme = sumi
+
+# Font: SpaceMono Nerd Font — the 'data carrier' in Ryoku's type system
+# (JetBrainsMono Nerd Font is also installed if you prefer it)
+font-family = SpaceMono Nerd Font
+font-size = 14
+
+# Breathing room + centered content
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+
+# Slight transparency over the wallpaper
+background-opacity = 0.97
+
+# Option acts as Alt (essential for tmux + shell keybindings)
+macos-option-as-alt = true
+
+# Selection copies to clipboard, like tmux
+copy-on-select = clipboard
+
+# No window decorations noise
+window-save-state = always

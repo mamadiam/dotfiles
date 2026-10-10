@@ -1,0 +1,34 @@
+# lazygit — catppuccin mocha (alternate; switch: scripts/theme.sh catppuccin)
+
+gui:
+  nerdFontsVersion: "3"
+  language: "en"
+  showRandomTip: false
+  theme:
+    activeBorderColor:
+      - "#cba6f7" # mauve
+      - bold
+    inactiveBorderColor:
+      - "#45475a" # surface1
+    searchingActiveBorderColor:
+      - "#e2342a"
+      - bold
+    optionsTextColor:
+      - "#a6adc8" # subtext0
+    selectedLineBgColor:
+      - "#313244" # surface0
+    cherryPickedCommitFgColor:
+      - "#e2342a"
+    cherryPickedCommitBgColor:
+      - "#a6e3a1"
+    markedBaseCommitFgColor:
+      - "#f9e2af"
+    unstagedChangesColor:
+      - "#e2342a" # an alert is an alert
+    defaultFgColor:
+      - "#cdd6f4" # text
+  border: "rounded"
+  shadow: false
+
+git:
+  overrideGpg: true

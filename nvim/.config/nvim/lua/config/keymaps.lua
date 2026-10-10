@@ -1,0 +1,2 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Add your personal keymaps here

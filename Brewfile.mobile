@@ -1,0 +1,6 @@
+# Optional mobile development layer — NOT installed by default.
+# Apply with: ./install.sh --mobile
+# Requires: signed in to the App Store (for Xcode via mas)
+
+mas "Xcode", id: 497799835
+cask "android-studio"

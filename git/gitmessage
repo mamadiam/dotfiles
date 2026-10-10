@@ -1,0 +1,6 @@
+
+# <type>: <subject>            (feat | fix | docs | style | refactor | test | chore)
+#
+# <body: why + what, wrapped>
+#
+# <footer: BREAKING CHANGE, Refs #123>

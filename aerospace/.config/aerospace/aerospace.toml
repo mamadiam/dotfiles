@@ -1,0 +1,77 @@
+# AeroSpace — i3-like tiling WM (no SIP disabling needed)
+# Docs: https://nikitabobko.github.io/AeroSpace/guide
+
+# Move windows with ctrl+cmd + drag (also enabled in defaults.sh)
+start-at-login = true
+
+# SketchyBar integration: fire our custom event on workspace change
+# (consumed by sketchybar items/spaces.lua; env vars are exported to it)
+exec-on-workspace-change = ['exec-and-forget sketchybar --trigger aerospace_change']
+
+# Normalizations: don't touch native fullscreen/tabs
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+[mode.main.mapping]
+# Focus — vim keys, alt as mod
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move windows
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Resize
+alt-shift-minus = 'resize smart -50'
+alt-shift-equal = 'resize smart +50'
+
+# Layouts
+alt-f = 'fullscreen'
+alt-t = 'toggle tiling floating'
+alt-e = 'layout tiles horizontal vertical'
+alt-w = 'layout accordion horizontal vertical'
+
+# Workspaces (1-5)
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+
+# Service mode: alt+shift+/ to enter, esc to exit
+alt-shift-slash = 'mode service'
+[mode.service.mapping]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating tiling', 'mode main']
+backspace = ['close-all-windows-but-current', 'mode main']
+
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'secondary'
+5 = 'secondary'
+
+[gaps]
+inner = { horizontal = 8, vertical = 8 }
+outer = { left = 8, bottom = 8, top = 8, right = 8 }
+
+# --- App → workspace auto-assignment (uncomment and adapt) -------------------
+# Fires when a window matching the regex appears.
+# [on-window-detected]
+# if-app-name-regex-substring = 'Arc'          # app name (case-insensitive substring)
+# check-further-calls = false                  # skip after first match
+# run = 'move-node-to-workspace 2'
+#
+# Common recipe:
+#   browser → 2, chat/mail → 5, music → 4

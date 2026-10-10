@@ -1,0 +1,35 @@
+# lazygit — sumi: paper and ink
+# Bone on black, hairline borders, vermillion selection accent.
+
+gui:
+  nerdFontsVersion: "3"
+  language: "en"
+  showRandomTip: false
+  theme:
+    activeBorderColor:
+      - "#e2342a" # vermillion — the frame carries the accent
+      - bold
+    inactiveBorderColor:
+      - "#353330" # hairline
+    searchingActiveBorderColor:
+      - "#e2342a"
+      - bold
+    optionsTextColor:
+      - "#b0a9a0" # inkDim
+    selectedLineBgColor:
+      - "#2a2522" # bone tint on paper
+    cherryPickedCommitFgColor:
+      - "#e2342a"
+    cherryPickedCommitBgColor:
+      - "#9daa84"
+    markedBaseCommitFgColor:
+      - "#d8a657"
+    unstagedChangesColor:
+      - "#e2342a" # an alert is an alert
+    defaultFgColor:
+      - "#cdc4ba" # ink
+  border: "rounded"
+  shadow: false
+
+git:
+  overrideGpg: true
