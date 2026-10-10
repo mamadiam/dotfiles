@@ -1,7 +1,7 @@
 # Managed by dotfiles — per-machine identity goes in ~/.gitconfig.local instead.
 [user]
 	name = YOUR NAME
-	email = you@example.com
+	email = you@example.com   # real identity: ~/.gitconfig.local (gitignored)
 
 [init]
 	defaultBranch = main

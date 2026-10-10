@@ -38,7 +38,7 @@ Three rules hold the whole system together. Everything else follows from them.
 
 **Everything is a file.** No hidden preference panes, no GUI config apps, no settings stored in opaque databases. Your prompt is a TOML file. Your bar is Lua. Your window manager is TOML. If you can edit a file, you can change anything.
 
-**Restraint is the aesthetic.** The default theme — *sumi* — is warm bone ink on pure black, hairlines instead of shadows, one accent that lives on the frame and never on content. Borrowed from [Ryoku](https://github.com/Ryoku-dev/ryoku)'s design language. Don't like ink? Two other full themes ship. See [Themes](#6-themes).
+**Restraint is the aesthetic.** Clean surfaces, one accent, no visual noise. The current theme is **Catppuccin Mocha**; a Ryoku-inspired paper-and-ink theme is the next planned look. See [Themes](#6-themes).
 
 ---
 
@@ -151,27 +151,20 @@ tmux (`ctrl-space` prefix) gives sessions that survive everything: `prefix+h/j/k
 
 ## 6. Themes
 
-Three complete looks. One command each:
+**Catppuccin Mocha** is the theme, everywhere: Ghostty, tmux, SketchyBar,
+starship, yazi, bat, btop, lazygit and the Borders focus ring. One palette,
+one mood — soft pastels on a mocha base, mauve accent.
+
+Re-apply it any time (also re-runs after you edit any theme file):
 
 ```sh
-make theme NAME=sumi         # paper and ink — bone on black, vermillion frame (default)
-make theme NAME=catppuccin   # mocha — soft pastels, mauve accent
-make theme NAME=tokyonight   # night mode — translucent indigo, neon purple
+make theme
 ```
 
-What a theme switch touches: Ghostty colors, the whole SketchyBar, the tmux status line, starship, yazi, bat, btop, and the Borders focus ring. Then `brew services restart sketchybar borders` (the script does it for you if they're running).
-
-| | sumi | catppuccin | tokyonight |
-|---|---|---|---|
-| Paper | `#000000` pure black | `#1e1e2e` base | `#1a1b26` translucent indigo |
-| Ink | `#cdc4ba` warm bone | `#cdd6f4` lavender-white | `#c0caf5` |
-| Accent | `#e2342a` vermillion | `#cba6f7` mauve | `#bb9af7` neon purple |
-| Corners | 6, near-square | 9 | 9 |
-| Terminal font | JetBrainsMono Nerd Font | JetBrainsMono NF | JetBrainsMono NF |
-
-*sumi* is the signature: **emphasis is inversion, not color** — selected things flip to a bone plate with dark ink, and the only color is data (battery levels, an alert red) or the accent on the frame. If that reads as austere, that's the point. It's Ryoku's discipline, and `tokyonight` is the party version.
-
----
+**More themes are coming.** A deep-dive into [Ryoku](https://github.com/Ryoku-dev/ryoku)'s
+paper-and-ink design language ("sumi") is planned as the next major theme.
+The theme infrastructure (`scripts/theme.sh` + `themes/`) is already built for
+it — see [Making your own theme](#13-making-your-own-theme).
 
 ## 7. The desktop clock
 

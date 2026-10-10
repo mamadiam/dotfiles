@@ -51,27 +51,9 @@ tmux (ctrl-space prefix) · starship · yazi (files) · bat · btop ·
 sketchybar (Lua menu bar) · borders (focus ring) · fastfetch · ubersicht (desktop clock) ·
 lazygit (sumi-themed) · nvim (LazyVim starter)
 
-## Themes — `make theme NAME=sumi|catppuccin`
-Two complete looks, one switch. `scripts/theme.sh` re-points every themed app;
-`make stow` (or a service restart) applies.
-
-**sumi** (default) — *paper and ink*: warm bone on pure black, vermillion accent
-on the frame only, hairline borders, near-square corners, Fraunces desktop clock
-with a 力 seal. Design language adapted from [Ryoku](https://ryoku.dev)
-(colors/metrics only — no code, see LICENSE-NOTE.md).
-
-| App | sumi | catppuccin |
-|---|---|---|
-| ghostty | custom theme `sumi` (JetBrainsMono Nerd Font) | built-in `catppuccin-mocha` |
-| tmux | hand-rolled statusline | hand-rolled statusline |
-| sketchybar | `colors.lua` tokens, radius 6, vermillion seal | mauve accent, radius 9 |
-| starship | `sumi` palette | `catppuccin_mocha` palette |
-| yazi / btop | sumi rewrites | Mocha |
-| bat | `ansi` (inherits terminal — color as data) | built-in Catppuccin |
-| borders | vermillion frame | mauve frame |
-
-Palette source of truth: `scripts/theme.sh` (simple lines) + `themes/` (complex
-formats). Type system: Fraunces / Space Grotesk / JetBrainsMono NF / Noto Sans CJK.
+## Theme
+**Catppuccin Mocha**, everywhere. Re-apply: `make theme`.
+Ryoku paper-and-ink theme planned — infra ready in `scripts/theme.sh` + `themes/`.
 
 ## Key cheatsheet
 | Where | Keys |

@@ -1,24 +1,9 @@
-# starship — minimal prompt, dual palettes (switch line below)
+# starship — minimal prompt, Catppuccin Mocha palette
 # scripts/theme.sh sumi|catppuccin flips the active palette.
 # Only what matters: dir, git, duration, language versions, exit status.
 
 add_newline = false
 palette = "catppuccin_mocha"
-
-[palettes.sumi]
-# paper and ink — warm bone on pure black, vermillion accent
-paper = "#000000"
-ink = "#cdc4ba"
-ink_dim = "#b0a9a0"
-ink_muted = "#958f87"
-ink_faint = "#7a756e"
-sun = "#e2342a"
-red = "#e2342a"
-green = "#9daa84"
-yellow = "#d8a657"
-blue = "#7f9dbe"
-peach = "#e0876a"
-
 
 [palettes.catppuccin_mocha]
 ink = "#cdd6f4"
