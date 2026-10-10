@@ -14,3 +14,6 @@ SBARLUA_COMMIT="dba9cc421b868c918d5c23c408544a28aadf2f2f"  # 2026-03-06, lua 5.5
 SBAR_APP_FONT_URL="https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.28/sketchybar-app-font.ttf"
 
 machine() { scutil --ComputerName 2>/dev/null || hostname -s; }
+
+# Stow packages: .config -> ~/.config, home -> $HOME (dotfiles at $HOME level)
+STOW_PKGS=(.config home)

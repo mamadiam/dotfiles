@@ -6,4 +6,4 @@ dotfiles-backup*/
 .DS_Store
 tmux/.config/tmux/plugins/
 plugins
-nvim/.config/nvim/lazyvim.json
+.config/nvim/lazyvim.json

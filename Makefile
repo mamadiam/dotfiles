@@ -25,7 +25,7 @@ check:              ## validate all configs (syntax, no side effects)
 	bash scripts/check.sh
 
 clean:              ## remove all symlinks (configs stay in repo)
-	stow -D --dir . --target $$HOME zsh git aerospace karabiner ghostty tmux starship yazi bat btop sketchybar borders fastfetch ubersicht
+	stow -D --dir . --target $$HOME .config home
 
 manual:             ## render MANUAL.md to a themed HTML page and open it
 	python3 scripts/manual-html.py
