@@ -101,7 +101,7 @@ The orchestrator never changes.
 
 ## Credits / sources
 All configs follow high-star, actively maintained projects: AeroSpace (23k★),
-yabai, SketchyBar + FelixKratz/dotfiles (GPL-3.0, see LICENSE-NOTE.md),
+AeroSpace, SketchyBar + FelixKratz/dotfiles (GPL-3.0, see LICENSE-NOTE.md),
 catppuccin (19.8k★), tpm (15.1k★), atuin, opencode, pi, starship, delta,
 zsh-autosuggestions — and the "remove animations / functional defaults"
 style popularized by ChrisTitusTech's macutil.

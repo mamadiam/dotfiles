@@ -299,26 +299,18 @@ Syncing across Macs: commit here, `make update` there. History, dotfiles, themes
 
 ---
 
-## 15. WM profiles & multi-monitor
+## 15. Multi-monitor & clamshell
 
-**Two window manager profiles, one command each:**
-
-| | `make wm WM=aerospace` (default) | `make wm WM=yabai` |
-|---|---|---|
-| Engine | AeroSpace (virtual workspaces) | yabai + skhd (native Spaces) |
-| Workspaces | 1–5, bar-integrated | macOS Spaces, skhd-bound |
-| SIP | not required | partial disable needed for animations + Space control |
-| Config | `aerospace/aerospace.toml` | `yabai/yabairc` + `skhd/skhdrc` |
-| Keys | `⌥hjkl/arrows`, `⌥⇧R` rebalance | `⌥hjkl`, `⌥⇧hjkl` warp, stacks, mirrors |
-
-Switching quits the other WM — never run both at once. yabai tiles fine
-without touching SIP; only its animations and Space manipulation need the
-scripting addition (recovery mode: `csrutil disable --partial --with-music`).
-That is a personal security trade-off — the default install doesn't touch SIP.
+**Window management is AeroSpace.** (yabai + Hammerspoon profiles were
+evaluated and dropped — both want the same hotkeys and a second WM engine
+fighting AeroSpace is a bad time. The yabai/skhd configs live in git history
+if you ever want them back.)
 
 **Prompt profile:** starship is the default. Prefer powerlevel10k (john-json's
 look, `.p10k.zsh` vendored in `p10k/`)? Set `ZSH_PROMPT=p10k` in
 `~/.zshrc.local` and open a new terminal.
+
+**System info:** `macchina` (`info` alias) — themed in `macchina/`.
 
 **The tiling setup is multi-monitor aware:** workspaces 1–3 live on the main
 display, 4–5 on the secondary (edit the `workspace-to-monitor-force-assignment`
@@ -346,7 +338,7 @@ OFF (System Settings → Desktop & Dock) — `macos/defaults.sh` already enforce
 it. Separate Spaces breaks AeroSpace focus and workspace placement in fun and
 creative ways.
 
-## 16. Troubleshooting
+## 16. Troubleshooting## 16. Troubleshooting
 
 **The tiling setup is multi-monitor aware:** workspaces 1–3 live on the main
 display, 4–5 on the secondary (edit the `workspace-to-monitor-force-assignment`

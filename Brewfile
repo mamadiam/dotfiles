@@ -60,10 +60,11 @@ brew "zsh-syntax-highlighting"  # 25k★ — commands colored as you type
 
 tap "crissnb/dynamicisland"
 
-# yabai profile (optional alternative WM — scripts/wm.sh yabai)
-brew "yabai"
-brew "skhd"
+# prompt profile alternative (ZSH_PROMPT=p10k in ~/.zshrc.local)
 brew "powerlevel10k"
+
+# system info TUI (macchina/ package — alias: info)
+brew "macchina"
 
 # sketchybar runtime deps (Lua bar — see sketchybar/ package)
 brew "lua"                      # interpreter for sketchybarrc

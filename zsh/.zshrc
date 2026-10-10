@@ -29,6 +29,7 @@ alias ll="eza -la --icons --group-directories-first --git"
 alias cat="bat --paging=never"
 alias lg="lazygit"
 alias fm="yazi"
+alias info="macchina"
 alias vi="nvim"
 alias vim="nvim"
 alias weather='curl wttr.in'
