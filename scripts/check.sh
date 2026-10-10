@@ -9,7 +9,7 @@ bad()  { printf '  \033[1;31m✗\033[0m %s\n' "$1"; fail=1; }
 log "Checking shell scripts"
 while IFS= read -r -d '' f; do
   bash -n "$f" && ok "$f" || bad "$f"
-done < <(find "$DOTFILES" -name '*.sh' -print0)
+done < <(find "$DOTFILES" -name '*.sh' -not -path "*/plugins/*" -print0)
 
 log "Checking zsh config"
 zsh -n "$DOTFILES/zsh/.zshrc" && ok "zsh/.zshrc" || bad "zsh/.zshrc"

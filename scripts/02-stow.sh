@@ -4,7 +4,7 @@
 # $HOME paths, then add <app> to STOW_PKGS below.
 source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
-STOW_PKGS=(zsh git aerospace karabiner ghostty tmux starship yazi bat btop sketchybar borders fastfetch ubersicht)
+STOW_PKGS=(zsh git aerospace karabiner ghostty tmux starship yazi bat btop sketchybar borders fastfetch ubersicht lazygit nvim)
 
 BACKUP_DIR="$HOME/dotfiles-backup-$(date +%Y%m%d-%H%M%S)"
 
