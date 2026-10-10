@@ -4,9 +4,8 @@
 # Theme is built into Ghostty (no import needed)
 theme = sumi
 
-# Font: SpaceMono Nerd Font — the 'data carrier' in Ryoku's type system
-# (JetBrainsMono Nerd Font is also installed if you prefer it)
-font-family = SpaceMono Nerd Font
+# Font: JetBrains Mono Nerd Font (installed via Brewfile)
+font-family = JetBrainsMono Nerd Font
 font-size = 14
 
 # Breathing room + centered content

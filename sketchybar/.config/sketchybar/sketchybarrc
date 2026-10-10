@@ -3,3 +3,5 @@
 -- Bootstrap: load the sketchybar Lua module and the config
 require("helpers")
 require("init")
+
+-- Dynamic Island runs as its own LaunchAgent (git.crissnb.dynamic-island)

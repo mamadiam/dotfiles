@@ -58,10 +58,14 @@ brew "rustup"                   # rust toolchain for low-level native apps
 brew "zsh-autosuggestions"      # 35k★ — fish-like suggestions
 brew "zsh-syntax-highlighting"  # 25k★ — commands colored as you type
 
+tap "crissnb/dynamicisland"
+
 # sketchybar runtime deps (Lua bar — see sketchybar/ package)
 brew "lua"                      # interpreter for sketchybarrc
 brew "switchaudio-osx"          # audio device switching for volume item
 brew "nowplaying-cli"           # media info for the media item
+brew "DynamicIslandSketchybar"  # 528★ — animated dynamic island around the notch
+brew "cava"                     # audio visualizer bars for the island's music mode
 
 # AI ecosystem
 brew "anomalyco/tap/opencode"   # official tap, always fresh — main agent #2
