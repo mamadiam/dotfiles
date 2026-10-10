@@ -26,7 +26,7 @@ local search   =
 			},
 			background = {
 				padding_right = 5,
-				color = colors.bar.bg,
+				color = colors.transparent,
 				corner_radius = 50,
 				height = 20,
 			}
@@ -70,5 +70,8 @@ search:subscribe("mouse.exited", function(env)
 	end)
 end)
 
+search:subscribe("mouse.clicked", function()
+  sbar.exec("open -a 'Raycast'")
+end)
 
 return search

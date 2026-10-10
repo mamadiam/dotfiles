@@ -175,7 +175,7 @@ local wifi_down = sbar.add("item", "widgets.wifi2", {
 sbar.add("item", { position = "right", width = settings.group_paddings })
 
 ssid:subscribe("mouse.clicked", function()
-    sbar.exec('osascript /Users/john/.config/sketchybar/items/scripts/toggleWifiState.scpt')
+    sbar.exec('osascript "$CONFIG_DIR/items/scripts/toggleWifiState.scpt"')
 end)
 
 ssid:subscribe("mouse.entered", function(env)
@@ -313,7 +313,7 @@ local function wcenter()
 end
 
 local function toggleWifi()
-    sbar.exec('osascript /Users/john/.config/sketchybar/items/scripts/toggleWifiState.scpt')
+    sbar.exec('osascript "$CONFIG_DIR/items/scripts/toggleWifiState.scpt"')
 end
 
 local function copy_label_to_clipboard(env)

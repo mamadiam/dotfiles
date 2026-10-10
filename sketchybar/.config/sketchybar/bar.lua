@@ -1,33 +1,19 @@
 local colors = require("colors")
-local settings = require("settings")
 local sbar = require("sketchybar")
 
--- Load the bar with widgets in the correct position first
+-- Invisible floating bar: items float 4px below the top edge; only their
+-- own plates (space dots, widget pills) are visible. Nothing else may
+-- write to the bar domain — there is no bar-style switcher anymore.
 sbar.bar({
-    alpha = 0,
-    y_offset = -50, -- Start off-screen
     position = "top",
     height = 30,
+    y_offset = 4,
     padding_right = 5,
     padding_left = 5,
-    color = colors.bar.bg_transparent,
-    margin = 200,
-    corner_radius = 4,
-    shadow = true,
-    blur_radius = 60,
+    color = colors.transparent,
+    border_width = 0,
+    shadow = false,
+    blur_radius = 0,
 })
 
--- Animate with a smooth rubber band effect
-sbar.animate("sin", 15, function()
-    local start_pos = -70
-    local overshoot = 15 -- Drop below before bouncing up
-    local final_pos = 5
-
-    -- Move from start -> overshoot -> final position
-    sbar.bar({ y_offset = final_pos + overshoot })
-
-    -- Bounce back up to final position
-    sbar.animate("sin", 15, function()
-        sbar.bar({ y_offset = final_pos, alpha = 1 })
-    end)
-end)
+sbar.bar({ alpha = 1 })

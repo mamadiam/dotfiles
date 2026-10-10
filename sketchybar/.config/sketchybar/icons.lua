@@ -81,7 +81,7 @@ local icons = {
             router = "􁓣"
         },
         media = {
-            icon = "󰝚",
+            icon = "", -- spotify
             back = "􀊉",
             forward = "􀊋",
             play_pause = "􀊇",

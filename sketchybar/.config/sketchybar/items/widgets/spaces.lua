@@ -18,25 +18,15 @@ local space_colors = {
 }
 
 -- Smooth color transition (his smoothColorTransition)
-local function smoothColorTransition(space, targetColor)
-  sbar.animate("sin", 15, function(progress)
-    local r1, g1, b1 = sbar.colorComponents(space.background.color)
-    local r2, g2, b2 = sbar.colorComponents(targetColor)
-    space:set({
-      background = {
-        color = sbar.colorFromComponents(
-          r1 + (r2 - r1) * progress,
-          g1 + (g2 - g1) * progress,
-          b1 + (b2 - b1) * progress
-        ),
-      },
-    })
-  end)
+-- Color state: direct set (his animated transition relied on SbarLua
+-- property reads this build doesn't expose)
+local function setColor(space, targetColor)
+  space:set({ background = { color = targetColor } })
 end
 
 -- Currently focused AeroSpace workspace (number) or nil
 local function focused_workspace()
-  local ok, handle = pcall(io.popen, "aerospace list-workspaces --focused 2>/dev/null")
+  local ok, handle = pcall(io.popen, "/opt/homebrew/bin/aerospace list-workspaces --focused 2>/dev/null")
   if not ok or handle == nil then return nil end
   local out = handle:read("*a") or ""
   handle:close()
@@ -44,31 +34,29 @@ local function focused_workspace()
 end
 
 local function update(focused)
+  local f = io.open("/tmp/dots.log", "a")
   for i = 1, WORKSPACE_COUNT do
     local selected = (focused == tostring(i))
     local targetColor = selected and space_colors[i] or colors.primary
-    smoothColorTransition(spaces[i], targetColor)
-    sbar.animate("elastic", 10, function()
-      spaces[i]:set({
-        label = {
-          padding_left = selected and 10 or 2,
-          padding_right = selected and 10 or 2,
-        },
-      })
-    end)
+    setColor(spaces[i], targetColor)
+    spaces[i]:set({
+      label = {
+        padding_left = selected and 10 or 2,
+        padding_right = selected and 10 or 2,
+      },
+    })
   end
 end
 
 for i = 1, WORKSPACE_COUNT do
   local space = sbar.add("item", "space." .. i, {
     position = "center",
-    width = 0,
     background = {
       color = colors.primary,
       height = 12,
       corner_radius = 2,
-      padding_left = 2,
-      padding_right = 2,
+      padding_left = 7,
+      padding_right = 7,
       drawing = true,
       position = "center",
       align = "center",
@@ -84,7 +72,7 @@ for i = 1, WORKSPACE_COUNT do
   space:subscribe("mouse.entered", function()
     sbar.animate("elastic", 10, function()
       space:set({
-        background = { padding_left = 8, padding_right = 8 },
+        background = { padding_left = 10, padding_right = 10 },
       })
     end)
   end)

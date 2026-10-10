@@ -93,8 +93,9 @@ inner = { horizontal = 8, vertical = 8 }
 # NOTE: macOS 27 still reserves ~28px for the menu bar behind sketchybar.
 # top = 34 - 28 = 6 makes windows sit flush under the bar. If you ever hide
 # the menu bar properly (Control Center -> autohide), raise top back to 34.
-# per-monitor top: built-in (notch + menu-bar reserve) vs external (clean)
-outer.top = [{ monitor.main = 18 }, 38]
+# per-monitor top: bar bottom sits at y=34; the built-in also reserves 28px
+# for the (hidden) menu bar — windows start at reserve + top
+outer.top = [{ monitor.main = 28 }, 46]
 outer.left = 8
 outer.bottom = 8
 outer.right = 8
