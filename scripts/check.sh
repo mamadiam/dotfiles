@@ -48,7 +48,7 @@ log "Checking stow packages are non-empty"
 for d in "$DOTFILES"/*/; do
   name=$(basename "$d")
   [[ "$name" == "scripts" || "$name" == "macos" || "$name" == "themes" ]] && continue
-  if find "$d" -type f | grep -q .; then
+  if [[ -n "$(find "$d" -type f -print -quit 2>/dev/null)" ]]; then
     ok "$name/"
   else
     bad "$name/ (empty package)"
