@@ -21,8 +21,11 @@ backup_conflicts() {
         # Dangling symlink from a previous setup — target is already gone
         rm "$target"
         had_conflict=1
-      elif [[ -e "$target" ]]; then
-        # Real file or live symlink not owned by us — back it up
+      elif [[ -e "$target" && "$(readlink -f "$target")" != "$DOTFILES"/* ]]; then
+        # Real file not owned by this stow — back it up.
+        # The readlink guard is critical: stow tree-folds whole directories
+        # (e.g. ~/.config/bat -> repo/bat/.config/bat), so a naive -e check
+        # would "back up" the repo's own files through the fold.
         mkdir -p "$BACKUP_DIR/$(dirname "$rel")"
         mv "$target" "$BACKUP_DIR/$rel"
         had_conflict=1
