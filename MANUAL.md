@@ -79,8 +79,8 @@ The mouse is for browsers. Everything else is keys.
 
 | Keys | Action |
 |---|---|
-| `alt-h j k l` | Focus left / down / up / right |
-| `alt-shift-h j k l` | Move window |
+| `alt-h j k l` or `alt-arrows` | Focus left / down / up / right |
+| `alt-shift-h j k l` or `alt-shift-arrows` | Move window |
 | `alt-shift-minus` / `alt-shift-equal` | Shrink / grow |
 | `alt-f` | Fullscreen |
 | `alt-t` | Float / tile toggle |
