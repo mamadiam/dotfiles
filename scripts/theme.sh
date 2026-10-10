@@ -12,12 +12,12 @@ source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
 THEME="${1:-sumi}"
 case "$THEME" in
-  sumi|catppuccin|tokyonight) ;;
+  sumi|catppuccin|tokyonight|carbon) ;;
   *) echo "unknown theme: $THEME (sumi | catppuccin)" >&2; exit 1 ;;
 esac
 
 # ── Palettes ────────────────────────────────────────────────────────────────
-if [[ "$THEME" == "tokyonight" ]]; then
+if [[ "$THEME" == "tokyonight" || "$THEME" == "carbon" ]]; then
   # Partial theme: sketchybar only (variant file in themes/sketchybar/)
   :
 elif [[ "$THEME" == "sumi" ]]; then
