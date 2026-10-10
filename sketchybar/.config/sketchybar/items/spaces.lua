@@ -44,7 +44,7 @@ local function update(focused)
       label = { highlight = selected, string = icon_line_for(i) },
       background = {
         color = selected and colors.bg2 or colors.bg1,
-        corner_radius = 13,
+        corner_radius = colors.radius,
         border_width = selected and 1 or 0,
         border_color = selected and colors.accent or colors.bg2,
       },
@@ -73,7 +73,7 @@ for i = 1, WORKSPACE_COUNT do
     padding_right = 1,
     background = {
       color = colors.bg1,
-      corner_radius = 13,
+      corner_radius = colors.radius,
       border_width = 0,
       height = 26,
       border_color = colors.bg2,

@@ -20,7 +20,7 @@ local wifi = sbar.add("item", "widgets.wifi", {
   },
   padding_left = 8,
   updates = true,
-  background = { color = colors.bg1, corner_radius = 13, height = 26, drawing = true },
+  background = { color = colors.bg1, corner_radius = colors.radius, height = 26, drawing = true },
 })
 
 sbar.add("bracket", { wifi.name }, {

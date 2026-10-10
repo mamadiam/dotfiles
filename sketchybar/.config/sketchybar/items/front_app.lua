@@ -14,7 +14,7 @@ local front_app = sbar.add("item", "front_app", {
     },
   },
   updates = true,
-  background = { color = colors.bg1, corner_radius = 13, height = 26, drawing = true },
+  background = { color = colors.bg1, corner_radius = colors.radius, height = 26, drawing = true },
   padding_left = 10,
   padding_right = 10,
 })

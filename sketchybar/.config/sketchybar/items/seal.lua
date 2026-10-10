@@ -13,6 +13,6 @@ sbar.add("item", "seal", {
     padding_right = 2,
   },
   label = { drawing = false },
-  background = { color = colors.accent, corner_radius = 12, height = 24, drawing = true },
+  background = { color = colors.accent, corner_radius = colors.radius, height = 24, drawing = true },
   width = 0,
 })
