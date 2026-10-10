@@ -27,6 +27,9 @@ check:              ## validate all configs (syntax, no side effects)
 clean:              ## remove all symlinks (configs stay in repo)
 	stow -D --dir . --target $$HOME zsh git aerospace karabiner ghostty tmux starship yazi bat btop sketchybar borders fastfetch ubersicht
 
+wm:                 ## switch WM: make wm WM=yabai (or WM=aerospace)
+	bash scripts/wm.sh $(WM)
+
 manual:             ## render MANUAL.md to a themed HTML page and open it
 	python3 scripts/manual-html.py
 

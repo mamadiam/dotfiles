@@ -1,90 +1,76 @@
-# yazi — Catppuccin Mocha
-# Adapted from the official catppuccin/yazi flavor (MIT)
-# https://github.com/catppuccin/yazi
-
+# yazi — carbon (john-json colors_dark inspired)
 [manager]
-cwd = { fg = "#89b4fa" }
-
-hovered = { fg = "#1e1e2e", bg = "#89b4fa" }
-preview_hovered = { fg = "#1e1e2e", bg = "#89b4fa" }
-
-find_keyword = { fg = "#f9e2af", bold = true, italic = true, underline = true }
-find_position = { fg = "#f5c2e7", bold = true, italic = true }
-
-marker_selected = { fg = "#a6e3a1", bg = "#a6e3a1" }
-marker_copied = { fg = "#f9e2af", bg = "#f9e2af" }
-marker_cut = { fg = "#f38ba8", bg = "#f38ba8" }
-
-tab_active = { fg = "#1e1e2e", bg = "#cba6f7" }
-tab_inactive = { fg = "#cdd6f4", bg = "#313244" }
+cwd = { fg = "#a2aab9" }
+hovered = { fg = "#000000", bg = "#dcaf6c" }
+preview_hovered = { fg = "#000000", bg = "#dcaf6c" }
+find_keyword = { fg = "#dcaf6c", bold = true, underline = true }
+find_position = { fg = "#8a8a8a", bold = true }
+marker_selected = { fg = "#98a8a9", bg = "#98a8a9" }
+marker_copied = { fg = "#dcaf6c", bg = "#dcaf6c" }
+marker_cut = { fg = "#c6755b", bg = "#c6755b" }
+tab_active = { fg = "#000000", bg = "#cdcdcd" }
+tab_inactive = { fg = "#5a5959", bg = "#1a1a1a" }
 tab_width = 1
-
-count_copied = { fg = "#1e1e2e", bg = "#f9e2af" }
-count_selected = { fg = "#1e1e2e", bg = "#a6e3a1" }
-count_cut = { fg = "#1e1e2e", bg = "#f38ba8" }
-
+count_copied = { fg = "#000000", bg = "#dcaf6c" }
+count_selected = { fg = "#000000", bg = "#98a8a9" }
+count_cut = { fg = "#000000", bg = "#c6755b" }
 border_symbol = "│"
-border_style = { fg = "#7f849c" }
-
-symlink = { fg = "#89dceb", italic = true }
+border_style = { fg = "#2a2a2a" }
+symlink = { fg = "#85a0a1", italic = true }
 
 [status]
 separator_open = ""
 separator_close = ""
-separator_style = { fg = "#313244", bg = "#313244" }
-
-mode_normal = { fg = "#1e1e2e", bg = "#89b4fa", bold = true }
-mode_select = { fg = "#1e1e2e", bg = "#a6e3a1", bold = true }
-mode_unset = { fg = "#1e1e2e", bg = "#f38ba8", bold = true }
-
-progress_label = { fg = "#cdd6f4", bold = true }
-progress_normal = { fg = "#89b4fa", bg = "#313244" }
-progress_error = { fg = "#f38ba8", bg = "#313244" }
-
-permissions_t = { fg = "#89b4fa" }
-permissions_r = { fg = "#f9e2af" }
-permissions_w = { fg = "#f38ba8" }
-permissions_x = { fg = "#a6e3a1" }
-permissions_s = { fg = "#6c7086" }
+separator_style = { fg = "#1a1a1a", bg = "#1a1a1a" }
+mode_normal = { fg = "#000000", bg = "#cdcdcd", bold = true }
+mode_select = { fg = "#000000", bg = "#98a8a9", bold = true }
+mode_unset = { fg = "#000000", bg = "#c6755b", bold = true }
+progress_label = { fg = "#cdcdcd", bold = true }
+progress_normal = { fg = "#b4b4b4", bg = "#1a1a1a" }
+progress_error = { fg = "#c6755b", bg = "#1a1a1a" }
+permissions_t = { fg = "#a2aab9" }
+permissions_r = { fg = "#dcaf6c" }
+permissions_w = { fg = "#c6755b" }
+permissions_x = { fg = "#98a8a9" }
+permissions_s = { fg = "#5a5959" }
 
 [input]
-border = { fg = "#cba6f7", bold = true }
-value = {}
+border = { fg = "#b4b4b4" }
 selected = { reversed = true }
 
 [select]
-border = { fg = "#cba6f7", bold = true }
-active = { fg = "#cba6f7" }
+border = { fg = "#b4b4b4" }
+active = { fg = "#cdcdcd" }
 inactive = {}
 
 [which]
 cols = 3
-mask = { bg = "#313244" }
-cand = { fg = "#89b4fa" }
-rest = { fg = "#9399b4" }
-desc = { fg = "#f5c2e7" }
+mask = { bg = "#1a1a1a" }
+cand = { fg = "#cdcdcd" }
+rest = { fg = "#5a5959" }
+desc = { fg = "#8a8a8a" }
 separator = "  "
-separator_style = { fg = "#585b70" }
+separator_style = { fg = "#2a2a2a" }
 
 [completion]
-border = { fg = "#cba6f7", bold = true }
-active = { fg = "#1e1e2e", bg = "#89b4fa" }
-inactive = { fg = "#cdd6f4" }
+border = { fg = "#b4b4b4" }
+active = { fg = "#000000", bg = "#cdcdcd" }
+inactive = { fg = "#cdcdcd" }
 
 [notify]
-title_info = { fg = "#89b4fa" }
-title_warn = { fg = "#f9e2af" }
-title_error = { fg = "#f38ba8" }
+title_info = { fg = "#a2aab9" }
+title_warn = { fg = "#dcaf6c" }
+title_error = { fg = "#c6755b" }
 
 [filetype]
 rules = [
-  { mime = "image/*", fg = "#89dceb" },
-  { mime = "{audio,video}/*", fg = "#f5c2e7" },
-  { mime = "application/{zip,rar,7z,tar,gz,xz,zstd,bz2,lzma}", fg = "#fab387" },
-  { mime = "application/{pdf,doc,rtf}", fg = "#f9e2af" },
-  { name = "*Dockerfile*", fg = "#89b4fa" },
-  { name = "*.md", fg = "#94e2d5" },
-  { name = "*.toml", fg = "#f9e2af" },
-  { name = "*.lock", fg = "#6c7086" },
-  { name = "*/", fg = "#89b4fa", bold = true },
+  { mime = "image/*", fg = "#85a0a1" },
+  { mime = "{audio,video}/*", fg = "#6a6378" },
+  { mime = "application/{zip,rar,7z,tar,gz,xz,zstd,bz2,lzma}", fg = "#d09367" },
+  { mime = "application/{pdf,doc,rtf}", fg = "#98a8a9" },
+  { name = "*Dockerfile*", fg = "#a2aab9" },
+  { name = "*.md", fg = "#b4b4b4" },
+  { name = "*.toml", fg = "#dcaf6c" },
+  { name = "*.lock", fg = "#5a5959" },
+  { name = "*/", fg = "#cdcdcd", bold = true },
 ]

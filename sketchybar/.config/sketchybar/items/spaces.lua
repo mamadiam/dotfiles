@@ -1,6 +1,6 @@
--- AeroSpace-native workspaces item.
--- Rewritten for this dotfiles repo: FelixKratz's original queries yabai;
--- this version reads AeroSpace workspaces instead. (Structure kept, GPL-3.0.)
+-- AeroSpace-driven workspaces with john-json's colored-space identity:
+-- every workspace owns a color; the active one transitions smoothly to full
+-- brightness, inactive ones rest dimmed. (Query logic ours, aesthetics his.)
 local colors = require("colors")
 local settings = require("settings")
 local app_icons = require("helpers.app_icons")
@@ -9,6 +9,34 @@ local spaces = {}
 
 -- Keep in sync with aerospace.toml workspace mappings
 local WORKSPACE_COUNT = 5
+
+-- Per-workspace identity colors (john-json style)
+local space_colors = {
+  colors.red, -- 1
+  colors.orange, -- 2
+  colors.yellow, -- 3
+  colors.magenta, -- 4
+  colors.blue, -- 5
+}
+
+local function dim(c) return colors.with_alpha(c, 0.30) end
+
+-- Smooth color transition (john-json's smoothColorTransition)
+local function smoothTransition(space, target)
+  sbar.animate("sin", 15, function(progress)
+    local r1, g1, b1 = sbar.colorComponents(space.background.color)
+    local r2, g2, b2 = sbar.colorComponents(target)
+    space:set({
+      background = {
+        color = sbar.colorFromComponents(
+          r1 + (r2 - r1) * progress,
+          g1 + (g2 - g1) * progress,
+          b1 + (b2 - b1) * progress
+        ),
+      },
+    })
+  end)
+end
 
 -- Returns the app-icon string for all windows in a workspace
 local function icon_line_for(ws)
@@ -39,15 +67,11 @@ end
 local function update(focused)
   for i = 1, WORKSPACE_COUNT do
     local selected = (focused == tostring(i))
+    local target = selected and space_colors[i] or dim(space_colors[i])
+    smoothTransition(spaces[i], target)
     spaces[i]:set({
-      icon = { highlight = selected },
-      label = { highlight = selected, string = icon_line_for(i) },
-      background = {
-        color = selected and colors.bg2 or colors.bg1,
-        corner_radius = colors.radius,
-        border_width = selected and 1 or 0,
-        border_color = selected and colors.accent or colors.bg2,
-      },
+      icon = { color = selected and colors.black or colors.white },
+      label = { color = selected and colors.black or colors.white, string = icon_line_for(i) },
     })
   end
 end
@@ -60,31 +84,22 @@ for i = 1, WORKSPACE_COUNT do
       padding_left = 15,
       padding_right = 8,
       color = colors.white,
-      highlight_color = colors.accent,
     },
     label = {
       padding_right = 12,
-      color = colors.grey,
-      highlight_color = colors.white,
+      color = colors.white,
       font = "sketchybar-app-font:Regular:16.0",
       y_offset = -1,
     },
     padding_left = 1,
     padding_right = 1,
     background = {
-      color = colors.bg1,
+      color = dim(space_colors[i]),
       corner_radius = colors.radius,
-      border_width = 0,
       height = 26,
-      border_color = colors.bg2,
     },
   })
   spaces[i] = space
-
-  -- Pill look: per-space plates, no outer bracket
-  sbar.add("bracket", { space.name }, {
-    background = { drawing = false }
-  })
 
   -- Padding between workspace items
   sbar.add("item", "space.padding." .. i, {

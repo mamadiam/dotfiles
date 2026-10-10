@@ -151,15 +151,18 @@ tmux (`ctrl-space` prefix) gives sessions that survive everything: `prefix+h/j/k
 
 ## 6. Themes
 
-**Catppuccin Mocha** is the theme, everywhere: Ghostty, tmux, SketchyBar,
+**Carbon** is the default theme, everywhere: Ghostty, tmux, SketchyBar,
 starship, yazi, bat, btop, lazygit and the Borders focus ring. One palette,
 one mood — soft pastels on a mocha base, mauve accent.
 
 Re-apply it any time (also re-runs after you edit any theme file):
 
 ```sh
-make theme
+make theme                    # carbon (default)
+make theme NAME=catppuccin    # soft pastels
 ```
+
+Carbon — muted charcoal + warm yellow, from [john-json/dotfiles](https://github.com/john-json/dotfiles)' palette.
 
 **More themes are coming.** A deep-dive into [Ryoku](https://github.com/Ryoku-dev/ryoku)'s
 paper-and-ink design language ("sumi") is planned as the next major theme.
@@ -296,7 +299,54 @@ Syncing across Macs: commit here, `make update` there. History, dotfiles, themes
 
 ---
 
-## 15. Multi-monitor & clamshell
+## 15. WM profiles & multi-monitor
+
+**Two window manager profiles, one command each:**
+
+| | `make wm WM=aerospace` (default) | `make wm WM=yabai` |
+|---|---|---|
+| Engine | AeroSpace (virtual workspaces) | yabai + skhd (native Spaces) |
+| Workspaces | 1–5, bar-integrated | macOS Spaces, skhd-bound |
+| SIP | not required | partial disable needed for animations + Space control |
+| Config | `aerospace/aerospace.toml` | `yabai/yabairc` + `skhd/skhdrc` |
+| Keys | `⌥hjkl/arrows`, `⌥⇧R` rebalance | `⌥hjkl`, `⌥⇧hjkl` warp, stacks, mirrors |
+
+Switching quits the other WM — never run both at once. yabai tiles fine
+without touching SIP; only its animations and Space manipulation need the
+scripting addition (recovery mode: `csrutil disable --partial --with-music`).
+That is a personal security trade-off — the default install doesn't touch SIP.
+
+**Prompt profile:** starship is the default. Prefer powerlevel10k (john-json's
+look, `.p10k.zsh` vendored in `p10k/`)? Set `ZSH_PROMPT=p10k` in
+`~/.zshrc.local` and open a new terminal.
+
+**The tiling setup is multi-monitor aware:** workspaces 1–3 live on the main
+display, 4–5 on the secondary (edit the `workspace-to-monitor-force-assignment`
+table in `aerospace.toml`). The floating bar renders on every display; the
+notch pill and Dynamic Island stay on the notched one. `⌥⇧⇥` throws a whole
+workspace to the other monitor.
+
+**Lid closed, external monitor (clamshell mode)** — macOS does this natively,
+with three requirements:
+
+1. **Power connected** — on battery the Mac sleeps when the lid closes
+2. **External display connected** (HDMI/USB-C)
+3. Any external keyboard + mouse
+
+Then just close the lid. If it still sleeps:
+
+```sh
+sudo pmset -a disablesleep 1    # never sleep, even lid-closed on battery
+# undo (recommended when travelling — battery + heat):
+sudo pmset -a disablesleep 0
+```
+
+**One rule for AeroSpace multi-monitor:** keep "Displays have separate Spaces"
+OFF (System Settings → Desktop & Dock) — `macos/defaults.sh` already enforces
+it. Separate Spaces breaks AeroSpace focus and workspace placement in fun and
+creative ways.
+
+## 16. Troubleshooting
 
 **The tiling setup is multi-monitor aware:** workspaces 1–3 live on the main
 display, 4–5 on the secondary (edit the `workspace-to-monitor-force-assignment`
@@ -356,7 +406,7 @@ The repo itself is disposable and restorable — it's one `git clone` away. Apps
 
 ---
 
-## 18. Credits
+## 19. Credits
 
 This system stands on tall shoulders:
 

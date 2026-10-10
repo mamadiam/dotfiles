@@ -3,7 +3,20 @@
 # Only what matters: dir, git, duration, language versions, exit status.
 
 add_newline = false
-palette = "catppuccin_mocha"
+palette = "carbon"
+
+[palettes.carbon]
+paper = "#131313"
+ink = "#cdcdcd"
+ink_dim = "#b4b4b4"
+ink_muted = "#8a8a8a"
+ink_faint = "#5a5959"
+sun = "#dcaf6c"
+red = "#c6755b"
+green = "#98a8a9"
+yellow = "#dcaf6c"
+blue = "#a2aab9"
+peach = "#d09367"
 
 [palettes.catppuccin_mocha]
 ink = "#cdd6f4"

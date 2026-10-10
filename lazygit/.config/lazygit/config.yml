@@ -1,34 +1,32 @@
-# lazygit — catppuccin mocha (alternate; switch: scripts/theme.sh catppuccin)
-
+# lazygit — carbon (john-json colors_dark inspired)
 gui:
   nerdFontsVersion: "3"
   language: "en"
   showRandomTip: false
   theme:
     activeBorderColor:
-      - "#cba6f7" # mauve
+      - "#dcaf6c"
       - bold
     inactiveBorderColor:
-      - "#45475a" # surface1
+      - "#2a2a2a"
     searchingActiveBorderColor:
-      - "#e2342a"
+      - "#dcaf6c"
       - bold
     optionsTextColor:
-      - "#a6adc8" # subtext0
+      - "#b4b4b4"
     selectedLineBgColor:
-      - "#313244" # surface0
+      - "#2a2522"
     cherryPickedCommitFgColor:
-      - "#e2342a"
+      - "#dcaf6c"
     cherryPickedCommitBgColor:
-      - "#a6e3a1"
+      - "#98a8a9"
     markedBaseCommitFgColor:
-      - "#f9e2af"
+      - "#d09367"
     unstagedChangesColor:
-      - "#e2342a" # an alert is an alert
+      - "#c6755b"
     defaultFgColor:
-      - "#cdd6f4" # text
+      - "#cdcdcd"
   border: "rounded"
   shadow: false
-
 git:
   overrideGpg: true

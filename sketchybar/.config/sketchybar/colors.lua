@@ -1,31 +1,32 @@
--- catppuccin mocha — the alternate palette (switch: scripts/theme.sh catppuccin)
+-- carbon — muted dark scheme inspired by john-json/dotfiles colors_dark
+-- (charcoal surfaces, warm yellow accent, desaturated data colors)
 -- Tokens file: this is the one place the bar's look is defined.
 return {
-  black = 0xff11111b, -- crust
-  white = 0xffcdd6f4, -- text
-  red = 0xfff38ba8,
-  green = 0xffa6e3a1,
-  blue = 0xff89b4fa,
-  yellow = 0xfff9e2af,
-  orange = 0xfffab387, -- peach
-  magenta = 0xffcba6f7, -- mauve
-  grey = 0xff6c7086, -- overlay0
+  black = 0xff111111,
+  white = 0xffcdcdcd,
+  red = 0xffc6755b,
+  green = 0xff98a8a9,
+  blue = 0xffa2aab9,
+  yellow = 0xffdcaf6c,
+  orange = 0xffd09367,
+  magenta = 0xff6a6378,
+  grey = 0xff5a5959,
   transparent = 0x00000000,
 
-  accent = 0xffcba6f7, -- mauve
-  sun = 0xffcba6f7,
+  accent = 0xffdcaf6c,
+  sun = 0xffdcaf6c,
 
   bar = {
-    bg = 0x00000000, -- invisible
-    border = 0xff1e1e2e,
+    bg = 0xf0181818, -- solid charcoal, floats 4px below the top edge
+    border = 0xff232323,
   },
   popup = {
-    bg = 0xc01e1e2e,
-    border = 0xff585b70, -- surface2
+    bg = 0xf0202020,
+    border = 0xff333333,
   },
-  bg1 = 0xff313244, -- surface0
-  bg2 = 0xff45475a, -- surface1
-  line = 0xff585b70,
+  bg1 = 0xff202020,
+  bg2 = 0xff2a2a2a,
+  line = 0xff2a2a2a,
 
   radius = 6,
 

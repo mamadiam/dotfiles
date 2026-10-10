@@ -52,7 +52,7 @@ sketchybar (Lua menu bar) · borders (focus ring) · fastfetch · ubersicht (des
 lazygit (sumi-themed) · nvim (LazyVim starter)
 
 ## Theme
-**Catppuccin Mocha**, everywhere. Re-apply: `make theme`.
+**Carbon** (john-json-inspired charcoal + yellow) is the default; `make theme NAME=catppuccin` for mocha. Ryoku paper-and-ink planned.
 Ryoku paper-and-ink theme planned — infra ready in `scripts/theme.sh` + `themes/`.
 
 ## Key cheatsheet

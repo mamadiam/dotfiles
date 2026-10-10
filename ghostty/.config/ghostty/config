@@ -2,7 +2,7 @@
 # Docs: https://ghostty.org/docs/config
 
 # Theme is built into Ghostty (no import needed)
-theme = catppuccin-mocha
+theme = carbon
 
 # Font: JetBrains Mono Nerd Font (installed via Brewfile)
 font-family = JetBrainsMono Nerd Font

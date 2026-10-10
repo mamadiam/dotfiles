@@ -57,10 +57,17 @@ alias ai="opencode"               # main agent #1
 alias pi_agent="pi"               # main agent #2 (kept explicit, `pi` is its CLI)
 alias ask="mods"                  # pipe questions: cat file | ask "explain"
 
-# --- fzf / zoxide / starship ---------------------------------------------------
+# --- fzf / zoxide ---------------------------------------------------------------
 eval "$(zoxide init zsh)"
 source <(fzf --zsh) 2>/dev/null || true
-eval "$(starship init zsh)"
+
+# --- prompt profile: starship (default) or p10k — set ZSH_PROMPT=p10k in ~/.zshrc.local
+if [[ "${ZSH_PROMPT:-starship}" == "p10k" ]] && [[ -d "/opt/homebrew/share/powerlevel10k" ]]; then
+  source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+  [[ -f "$HOME/.p10k.zsh" ]] && source "$HOME/.p10k.zsh"
+else
+  eval "$(starship init zsh)"
+fi
 
 # --- fnm (node version manager, auto-switches .nvmrc/.node-version) ------------
 command -v fnm &>/dev/null && eval "$(fnm env --use-on-cd)"

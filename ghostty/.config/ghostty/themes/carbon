@@ -1,0 +1,26 @@
+# carbon — muted dark scheme inspired by john-json/dotfiles colors_dark
+background = #131313
+foreground = #cdcdcd
+
+cursor-color = #dcaf6c
+cursor-text = #000000
+
+selection-background = #cdcdcd
+selection-foreground = #000000
+
+palette = 0=#1a1a1a
+palette = 8=#5a5959
+palette = 1=#c6755b
+palette = 9=#e09a80
+palette = 2=#98a8a9
+palette = 10=#b3c4c4
+palette = 3=#dcaf6c
+palette = 11=#ecd3a0
+palette = 4=#a2aab9
+palette = 12=#c0c8d6
+palette = 5=#6a6378
+palette = 13=#948aab
+palette = 6=#85a0a1
+palette = 14=#a8c4c6
+palette = 7=#cdcdcd
+palette = 15=#f0eeeb

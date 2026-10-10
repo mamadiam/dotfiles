@@ -1,0 +1,76 @@
+# yazi — carbon (john-json colors_dark inspired)
+[manager]
+cwd = { fg = "#a2aab9" }
+hovered = { fg = "#000000", bg = "#dcaf6c" }
+preview_hovered = { fg = "#000000", bg = "#dcaf6c" }
+find_keyword = { fg = "#dcaf6c", bold = true, underline = true }
+find_position = { fg = "#8a8a8a", bold = true }
+marker_selected = { fg = "#98a8a9", bg = "#98a8a9" }
+marker_copied = { fg = "#dcaf6c", bg = "#dcaf6c" }
+marker_cut = { fg = "#c6755b", bg = "#c6755b" }
+tab_active = { fg = "#000000", bg = "#cdcdcd" }
+tab_inactive = { fg = "#5a5959", bg = "#1a1a1a" }
+tab_width = 1
+count_copied = { fg = "#000000", bg = "#dcaf6c" }
+count_selected = { fg = "#000000", bg = "#98a8a9" }
+count_cut = { fg = "#000000", bg = "#c6755b" }
+border_symbol = "│"
+border_style = { fg = "#2a2a2a" }
+symlink = { fg = "#85a0a1", italic = true }
+
+[status]
+separator_open = ""
+separator_close = ""
+separator_style = { fg = "#1a1a1a", bg = "#1a1a1a" }
+mode_normal = { fg = "#000000", bg = "#cdcdcd", bold = true }
+mode_select = { fg = "#000000", bg = "#98a8a9", bold = true }
+mode_unset = { fg = "#000000", bg = "#c6755b", bold = true }
+progress_label = { fg = "#cdcdcd", bold = true }
+progress_normal = { fg = "#b4b4b4", bg = "#1a1a1a" }
+progress_error = { fg = "#c6755b", bg = "#1a1a1a" }
+permissions_t = { fg = "#a2aab9" }
+permissions_r = { fg = "#dcaf6c" }
+permissions_w = { fg = "#c6755b" }
+permissions_x = { fg = "#98a8a9" }
+permissions_s = { fg = "#5a5959" }
+
+[input]
+border = { fg = "#b4b4b4" }
+selected = { reversed = true }
+
+[select]
+border = { fg = "#b4b4b4" }
+active = { fg = "#cdcdcd" }
+inactive = {}
+
+[which]
+cols = 3
+mask = { bg = "#1a1a1a" }
+cand = { fg = "#cdcdcd" }
+rest = { fg = "#5a5959" }
+desc = { fg = "#8a8a8a" }
+separator = "  "
+separator_style = { fg = "#2a2a2a" }
+
+[completion]
+border = { fg = "#b4b4b4" }
+active = { fg = "#000000", bg = "#cdcdcd" }
+inactive = { fg = "#cdcdcd" }
+
+[notify]
+title_info = { fg = "#a2aab9" }
+title_warn = { fg = "#dcaf6c" }
+title_error = { fg = "#c6755b" }
+
+[filetype]
+rules = [
+  { mime = "image/*", fg = "#85a0a1" },
+  { mime = "{audio,video}/*", fg = "#6a6378" },
+  { mime = "application/{zip,rar,7z,tar,gz,xz,zstd,bz2,lzma}", fg = "#d09367" },
+  { mime = "application/{pdf,doc,rtf}", fg = "#98a8a9" },
+  { name = "*Dockerfile*", fg = "#a2aab9" },
+  { name = "*.md", fg = "#b4b4b4" },
+  { name = "*.toml", fg = "#dcaf6c" },
+  { name = "*.lock", fg = "#5a5959" },
+  { name = "*/", fg = "#cdcdcd", bold = true },
+]

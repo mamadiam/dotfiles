@@ -60,6 +60,11 @@ brew "zsh-syntax-highlighting"  # 25k★ — commands colored as you type
 
 tap "crissnb/dynamicisland"
 
+# yabai profile (optional alternative WM — scripts/wm.sh yabai)
+brew "yabai"
+brew "skhd"
+brew "powerlevel10k"
+
 # sketchybar runtime deps (Lua bar — see sketchybar/ package)
 brew "lua"                      # interpreter for sketchybarrc
 brew "switchaudio-osx"          # audio device switching for volume item

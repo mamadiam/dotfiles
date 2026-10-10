@@ -1,0 +1,32 @@
+# lazygit — carbon (john-json colors_dark inspired)
+gui:
+  nerdFontsVersion: "3"
+  language: "en"
+  showRandomTip: false
+  theme:
+    activeBorderColor:
+      - "#dcaf6c"
+      - bold
+    inactiveBorderColor:
+      - "#2a2a2a"
+    searchingActiveBorderColor:
+      - "#dcaf6c"
+      - bold
+    optionsTextColor:
+      - "#b4b4b4"
+    selectedLineBgColor:
+      - "#2a2522"
+    cherryPickedCommitFgColor:
+      - "#dcaf6c"
+    cherryPickedCommitBgColor:
+      - "#98a8a9"
+    markedBaseCommitFgColor:
+      - "#d09367"
+    unstagedChangesColor:
+      - "#c6755b"
+    defaultFgColor:
+      - "#cdcdcd"
+  border: "rounded"
+  shadow: false
+git:
+  overrideGpg: true
