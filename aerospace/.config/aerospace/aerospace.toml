@@ -1,4 +1,8 @@
 # AeroSpace — i3-like tiling WM (no SIP disabling needed)
+config-version = 2
+
+# keep 1-5 alive when empty — sketchybar renders them at all times
+persistent-workspaces = ["1", "2", "3", "4", "5"]
 # Docs: https://nikitabobko.github.io/AeroSpace/guide
 
 # Move windows with ctrl+cmd + drag (also enabled in defaults.sh)
@@ -6,13 +10,14 @@ start-at-login = true
 
 # SketchyBar integration: fire our custom event on workspace change
 # (consumed by sketchybar items/spaces.lua; env vars are exported to it)
-exec-on-workspace-change = ['exec-and-forget sketchybar --trigger aerospace_change']
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_change']  # AEROSPACE_* env vars are inherited
 
 # Normalizations: don't touch native fullscreen/tabs
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
-[mode.main.mapping]
+[mode.main.binding]
 # Focus — vim keys, alt as mod
 alt-h = 'focus left'
 alt-j = 'focus down'
@@ -31,7 +36,7 @@ alt-shift-equal = 'resize smart +50'
 
 # Layouts
 alt-f = 'fullscreen'
-alt-t = 'toggle tiling floating'
+alt-t = 'layout floating tiling'
 alt-e = 'layout tiles horizontal vertical'
 alt-w = 'layout accordion horizontal vertical'
 
@@ -49,7 +54,7 @@ alt-shift-5 = 'move-node-to-workspace 5'
 
 # Service mode: alt+shift+/ to enter, esc to exit
 alt-shift-slash = 'mode service'
-[mode.service.mapping]
+[mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main']
 f = ['layout floating tiling', 'mode main']
@@ -64,7 +69,9 @@ backspace = ['close-all-windows-but-current', 'mode main']
 
 [gaps]
 inner = { horizontal = 8, vertical = 8 }
-outer = { left = 8, bottom = 8, top = 8, right = 8 }
+# outer.top must clear the sketchybar height (see sketchybar/bar.lua, height = 40) —
+# with the macOS menu bar hidden, nothing else reserves that space
+outer = { left = 8, bottom = 8, top = 40, right = 8 }
 
 # --- App → workspace auto-assignment (uncomment and adapt) -------------------
 # Fires when a window matching the regex appears.
