@@ -36,6 +36,9 @@ alt-shift-equal = 'resize smart +50'
 
 # Layouts
 alt-f = 'fullscreen'
+# Re-balance: the BSP tree grows nested/uneven as you move windows around;
+# this flattens it back to equal splits (verified: 3 windows = 3 equal columns)
+alt-shift-r = 'flatten-workspace-tree'
 alt-t = 'layout floating tiling'
 alt-e = 'layout tiles horizontal vertical'
 alt-w = 'layout accordion horizontal vertical'
