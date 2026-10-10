@@ -296,7 +296,35 @@ Syncing across Macs: commit here, `make update` there. History, dotfiles, themes
 
 ---
 
-## 15. Troubleshooting
+## 15. Multi-monitor & clamshell
+
+**The tiling setup is multi-monitor aware:** workspaces 1–3 live on the main
+display, 4–5 on the secondary (edit the `workspace-to-monitor-force-assignment`
+table in `aerospace.toml`). The floating bar renders on every display; the
+notch pill and Dynamic Island stay on the notched one. `⌥⇧⇥` throws a whole
+workspace to the other monitor.
+
+**Lid closed, external monitor (clamshell mode)** — macOS does this natively,
+with three requirements:
+
+1. **Power connected** — on battery the Mac sleeps when the lid closes
+2. **External display connected** (HDMI/USB-C)
+3. Any external keyboard + mouse
+
+Then just close the lid. If it still sleeps:
+
+```sh
+sudo pmset -a disablesleep 1    # never sleep, even lid-closed on battery
+# undo (recommended when travelling — battery + heat):
+sudo pmset -a disablesleep 0
+```
+
+**One rule for AeroSpace multi-monitor:** keep "Displays have separate Spaces"
+OFF (System Settings → Desktop & Dock) — `macos/defaults.sh` already enforces
+it. Separate Spaces breaks AeroSpace focus and workspace placement in fun and
+creative ways.
+
+## 16. Troubleshooting
 
 **A window won't tile** — it's floating or fullscreen. `alt-t` to tile it, `alt-f` to leave fullscreen. Some apps float better (accessibility quirks); add an `on-window-detected` rule to float them permanently.
 
@@ -316,7 +344,7 @@ Syncing across Macs: commit here, `make update` there. History, dotfiles, themes
 
 ---
 
-## 16. Uninstalling
+## 17. Uninstalling
 
 ```sh
 make clean          # removes every symlink; the repo keeps all configs
@@ -328,7 +356,7 @@ The repo itself is disposable and restorable — it's one `git clone` away. Apps
 
 ---
 
-## 17. Credits
+## 18. Credits
 
 This system stands on tall shoulders:
 

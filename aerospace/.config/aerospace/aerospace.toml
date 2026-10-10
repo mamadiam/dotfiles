@@ -93,7 +93,11 @@ inner = { horizontal = 8, vertical = 8 }
 # NOTE: macOS 27 still reserves ~28px for the menu bar behind sketchybar.
 # top = 34 - 28 = 6 makes windows sit flush under the bar. If you ever hide
 # the menu bar properly (Control Center -> autohide), raise top back to 34.
-outer = { left = 8, bottom = 8, top = 18, right = 8 }
+# per-monitor top: built-in (notch + menu-bar reserve) vs external (clean)
+outer.top = [{ monitor.main = 18 }, 14]
+outer.left = 8
+outer.bottom = 8
+outer.right = 8
 
 # --- App → workspace auto-assignment (uncomment and adapt) -------------------
 # Fires when a window matching the regex appears.

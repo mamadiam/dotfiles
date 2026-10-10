@@ -39,7 +39,7 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 log "Mission Control"
 defaults write com.apple.dock expose-animation-duration -int 0
-defaults write com.apple.spaces spans-displays -bool false
+defaults write com.apple.spaces spans-displays -bool true  # DISABLE 'displays have separate spaces' — AeroSpace requirement
 
 log "Kill animations (Chris Titus macutil style: 'remove apple b.s.')"
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
