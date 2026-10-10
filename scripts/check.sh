@@ -45,10 +45,8 @@ else
 fi
 
 log "Checking stow packages are non-empty"
-for d in "$DOTFILES"/*/; do
-  name=$(basename "$d")
-  [[ "$name" == "scripts" || "$name" == "macos" || "$name" == "themes" ]] && continue
-  if [[ -n "$(find "$d" -type f -print -quit 2>/dev/null)" ]]; then
+for name in "${STOW_PKGS[@]}"; do
+  if [[ -n "$(find "$DOTFILES/$name" -type f -print -quit 2>/dev/null)" ]]; then
     ok "$name/"
   else
     bad "$name/ (empty package)"
