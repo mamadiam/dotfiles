@@ -13,6 +13,14 @@ start-at-login = true
 exec-on-workspace-change = ['/bin/bash', '-c',
     'sketchybar --trigger aerospace_change']  # AEROSPACE_* env vars are inherited
 
+# --- App → workspace auto-assignment ----------------------------------------
+# Spotify's window refuses to shrink below ~800px, so tiling it alongside
+# others overflows its slot and overlaps neighbors. It gets its own workspace.
+on-window-detected = [
+    { if.app-id = 'com.spotify.client', run = 'move-node-to-workspace 4' },
+]
+
+
 # Normalizations: don't touch native fullscreen/tabs
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
