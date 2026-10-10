@@ -27,5 +27,8 @@ check:              ## validate all configs (syntax, no side effects)
 clean:              ## remove all symlinks (configs stay in repo)
 	stow -D --dir . --target $$HOME zsh git aerospace karabiner ghostty tmux starship yazi bat btop sketchybar borders fastfetch ubersicht
 
+manual:             ## render MANUAL.md to a themed HTML page and open it
+	python3 scripts/manual-html.py
+
 help:               ## show this help
 	@grep -E '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2}'
