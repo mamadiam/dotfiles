@@ -1,5 +1,7 @@
 # dotfiles
 
+> **[Read the Manual →](MANUAL.md)** — how to drive the system, configure it, and make it yours.
+
 One repo = my Mac, on any Mac I own.
 Every Mac is reset to this standard in one command; whatever it replaces is backed up, never destroyed.
 
