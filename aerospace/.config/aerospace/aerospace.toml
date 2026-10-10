@@ -68,10 +68,13 @@ backspace = ['close-all-windows-but-current', 'mode main']
 5 = 'secondary'
 
 [gaps]
-inner = { horizontal = 2, vertical = 2 }
+inner = { horizontal = 4, vertical = 4 }
 # outer.top must clear the sketchybar height (see sketchybar/bar.lua, height = 34) —
 # with the macOS menu bar hidden, nothing else reserves that space
-outer = { left = 2, bottom = 2, top = 34, right = 2 }
+# NOTE: macOS 27 still reserves ~28px for the menu bar behind sketchybar.
+# top = 34 - 28 = 6 makes windows sit flush under the bar. If you ever hide
+# the menu bar properly (Control Center -> autohide), raise top back to 34.
+outer = { left = 8, bottom = 8, top = 6, right = 8 }
 
 # --- App → workspace auto-assignment (uncomment and adapt) -------------------
 # Fires when a window matching the regex appears.
