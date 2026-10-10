@@ -5,7 +5,9 @@
 background = #000000
 foreground = #cdc4ba
 
-cursor-color = #e2342a
+# Inversion, not color: the cursor is a bone plate with dark ink under it
+# (matches the selection highlight — the red stays reserved for alerts)
+cursor-color = #cdc4ba
 cursor-text = #000000
 
 selection-background = #cdc4ba
