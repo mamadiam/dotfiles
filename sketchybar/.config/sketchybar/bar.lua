@@ -9,6 +9,8 @@ sbar.bar({
   height = 30,
   corner_radius = 0,
   shadow = false,
+  border_width = 0,
+  border_color = colors.bar.bg,
   color = colors.bar.bg,
   padding_right = 8,
   padding_left = 8,
