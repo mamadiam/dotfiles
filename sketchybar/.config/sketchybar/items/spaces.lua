@@ -91,7 +91,7 @@ for i = 1, WORKSPACE_COUNT do
   })
 
   space:subscribe("mouse.clicked", function()
-    sbar.exec("aerospace workspace " .. i)
+    sbar.exec("aerospace workspace " .. i .. " 2>/dev/null")
   end)
 end
 

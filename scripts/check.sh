@@ -14,15 +14,20 @@ done < <(find "$DOTFILES" -name '*.sh' -print0)
 log "Checking zsh config"
 zsh -n "$DOTFILES/zsh/.zshrc" && ok "zsh/.zshrc" || bad "zsh/.zshrc"
 
+PY=""
+for cand in python3 python3.14 /opt/homebrew/bin/python3.14; do
+  if command -v "$cand" >/dev/null 2>&1 && "$cand" -c "import tomllib" 2>/dev/null; then PY="$cand"; break; fi
+done
+
 log "Checking TOML configs"
 while IFS= read -r -d '' f; do
-  python3 -c "import tomllib,sys; tomllib.load(open(sys.argv[1],'rb'))" "$f" \
-    && ok "$f" || bad "$f"
+  { [[ -n "$PY" ]] && "$PY" -c "import tomllib,sys; tomllib.load(open(sys.argv[1],'rb'))" "$f"; } \
+    && ok "$f" || { [[ -z "$PY" ]] && warn "$f (no toml-capable python)"; [[ -n "$PY" ]] && bad "$f"; }
 done < <(find "$DOTFILES" -name '*.toml' -print0)
 
 log "Checking btop.conf (loose TOML)"
-python3 -c "import tomllib; tomllib.load(open('$DOTFILES/btop/.config/btop/btop.conf','rb'))" \
-  && ok "btop.conf" || bad "btop.conf"
+{ [[ -n "$PY" ]] && "$PY" -c "import tomllib; tomllib.load(open('$DOTFILES/btop/.config/btop/btop.conf','rb'))"; } \
+  && ok "btop.conf" || { [[ -z "$PY" ]] && warn "btop.conf (skipped)"; [[ -n "$PY" ]] && bad "btop.conf"; }
 
 log "Checking JSON configs"
 while IFS= read -r -d '' f; do

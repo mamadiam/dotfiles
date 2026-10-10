@@ -1,36 +1,36 @@
--- sumi — paper and ink. Warm bone on pure black, vermillion on the frame.
+-- tokyo-night — the sexy one. Deep translucent indigo, neon purple accent,
+-- vivid data colors. Palette: Tokyo Night (folke/tokyonight.nvim, Apache-2.0).
 -- Tokens file: this is the one place the bar's look is defined.
--- Design language adapted from Ryoku (ryoku.dev); palette from their Tokens.
 return {
-  black = 0xff000000, -- paper
-  white = 0xffcdc4ba, -- ink (titles/values)
-  red = 0xffe2342a, -- the alert — always the alert
-  green = 0xff9daa84,
-  blue = 0xff7f9dbe,
-  yellow = 0xffd8a657,
-  orange = 0xffe0876a,
-  magenta = 0xffc39ac3,
-  grey = 0xff7a756e, -- inkFaint
+  black = 0xff16161e,
+  white = 0xffc0caf5,
+  red = 0xfff7768e,
+  green = 0xff9ece6a,
+  blue = 0xff7aa2f7,
+  yellow = 0xffe0af68,
+  orange = 0xffff9e64,
+  magenta = 0xffbb9af7, -- purple
+  grey = 0xff565f89, -- comment
   transparent = 0x00000000,
 
-  -- the accent: lives on the frame, never on content
-  accent = 0xffe2342a, -- vermillion
-  sun = 0xffe2342a,
+  -- the accent: neon purple, lives on the frame
+  accent = 0xffbb9af7,
+  sun = 0xffbb9af7,
 
   bar = {
-    bg = 0xe6000000, -- paper, mostly opaque
-    border = 0xff000000,
+    bg = 0xd91a1b26, -- translucent indigo — the wallpaper glows through
+    border = 0xff1a1b26,
   },
   popup = {
-    bg = 0xf00a0a0a, -- paperLift
-    border = 0xff353330, -- hairline: ink at 26%
+    bg = 0xe9292e42,
+    border = 0xff565f89,
   },
-  bg1 = 0xff0a0a0a, -- paperLift
-  bg2 = 0xff1a1817, -- lifted surface border
-  line = 0xff353330,
+  bg1 = 0xff292e42, -- bg_highlight
+  bg2 = 0xff2f334d,
+  line = 0xff2f334d,
 
-  -- geometry token (Ryoku: "a hair of rounding", radius 6)
-  radius = 6,
+  -- geometry token — rounder pills for the night look
+  radius = 9,
 
   with_alpha = function(color, alpha)
     if alpha > 1.0 or alpha < 0.0 then return color end

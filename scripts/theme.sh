@@ -12,12 +12,15 @@ source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
 THEME="${1:-sumi}"
 case "$THEME" in
-  sumi|catppuccin) ;;
+  sumi|catppuccin|tokyonight) ;;
   *) echo "unknown theme: $THEME (sumi | catppuccin)" >&2; exit 1 ;;
 esac
 
 # ── Palettes ────────────────────────────────────────────────────────────────
-if [[ "$THEME" == "sumi" ]]; then
+if [[ "$THEME" == "tokyonight" ]]; then
+  # Partial theme: sketchybar only (variant file in themes/sketchybar/)
+  :
+elif [[ "$THEME" == "sumi" ]]; then
   # Paper and ink — warm bone on pure black (design language from Ryoku)
   GHOSTTY_THEME="sumi"
   BAT_THEME='--theme=ansi'                 # inherits the terminal palette
@@ -32,6 +35,13 @@ else
   BORDER_ACTIVE='0xffcba6f7'               # mauve
 fi
 
+# Partial themes (e.g. tokyonight = sketchybar only) leave these empty
+GHOSTTY_THEME="${GHOSTTY_THEME:-}"
+BAT_THEME="${BAT_THEME:-}"
+STARSHIP_PALETTE="${STARSHIP_PALETTE:-}"
+BTOP_THEME="${BTOP_THEME:-}"
+BORDER_ACTIVE="${BORDER_ACTIVE:-}"
+
 sed_line() { # sed_line <file> <match> <replacement>
   if grep -q "$2" "$1" 2>/dev/null; then
     sed -i '' "s|$2|$3|" "$1"
@@ -42,32 +52,32 @@ sed_line() { # sed_line <file> <match> <replacement>
 
 # ── Simple color lines ──────────────────────────────────────────────────────
 log "ghostty  → $GHOSTTY_THEME"
-sed_line "$DOTFILES/ghostty/.config/ghostty/config" '^theme = .*' "theme = $GHOSTTY_THEME"
+[[ -n "${GHOSTTY_THEME:-}" ]] && sed_line "$DOTFILES/ghostty/.config/ghostty/config" '^theme = .*' "theme = $GHOSTTY_THEME"
 
 log "bat      → $BAT_THEME"
-sed_line "$DOTFILES/bat/.config/bat/config" '^--theme=.*' "$BAT_THEME"
+[[ -n "${BAT_THEME:-}" ]] && sed_line "$DOTFILES/bat/.config/bat/config" '^--theme=.*' "$BAT_THEME"
 
 log "starship → $STARSHIP_PALETTE"
-sed_line "$DOTFILES/starship/.config/starship.toml" '^palette = .*' "palette = \"$STARSHIP_PALETTE\""
+[[ -n "${STARSHIP_PALETTE:-}" ]] && sed_line "$DOTFILES/starship/.config/starship.toml" '^palette = .*' "palette = \"$STARSHIP_PALETTE\""
 
 log "btop     → $BTOP_THEME"
-sed_line "$DOTFILES/btop/.config/btop/btop.conf" '^theme = .*' "theme = \"$BTOP_THEME\""
+[[ -n "${BTOP_THEME:-}" ]] && sed_line "$DOTFILES/btop/.config/btop/btop.conf" '^theme = .*' "theme = \"$BTOP_THEME\""
 
 log "borders  → $BORDER_ACTIVE"
-sed_line "$DOTFILES/borders/.config/bordersrc" '^active_color=.*' "active_color=$BORDER_ACTIVE"
+[[ -n "${BORDER_ACTIVE:-}" ]] && sed_line "$DOTFILES/borders/.config/bordersrc" '^active_color=.*' "active_color=$BORDER_ACTIVE"
 
 # ── Complex formats: copy the variant into place ────────────────────────────
 log "tmux     → $THEME"
-cp "$DOTFILES/themes/tmux-$THEME.conf" "$DOTFILES/tmux/.config/tmux/theme.conf"
+f="$DOTFILES/themes/tmux-$THEME.conf"; [[ -f "$f" ]] && cp "$f" "$DOTFILES/tmux/.config/tmux/theme.conf"
 
 log "yazi     → $THEME"
-cp "$DOTFILES/themes/yazi-$THEME.toml" "$DOTFILES/yazi/.config/yazi/theme.toml"
+f="$DOTFILES/themes/yazi-$THEME.toml"; [[ -f "$f" ]] && cp "$f" "$DOTFILES/yazi/.config/yazi/theme.toml"
 
 log "lazygit  → $THEME"
-cp "$DOTFILES/themes/lazygit-$THEME.yml" "$DOTFILES/lazygit/.config/lazygit/config.yml"
+f="$DOTFILES/themes/lazygit-$THEME.yml"; [[ -f "$f" ]] && cp "$f" "$DOTFILES/lazygit/.config/lazygit/config.yml"
 
 log "sketchybar → $THEME"
-cp "$DOTFILES/themes/sketchybar/$THEME.lua" "$DOTFILES/sketchybar/.config/sketchybar/colors.lua"
+f="$DOTFILES/themes/sketchybar/$THEME.lua"; [[ -f "$f" ]] && cp "$f" "$DOTFILES/sketchybar/.config/sketchybar/colors.lua" || warn "no sketchybar variant for $THEME"
 
 # ── Apply now if the configs are already live symlinks ──────────────────────
 if [[ -L "$HOME/.config/sketchybar/colors.lua" ]]; then

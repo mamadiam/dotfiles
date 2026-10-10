@@ -51,6 +51,7 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 log "Appearance (paper is black — system follows)"
+defaults write NSGlobalDomain _HIHideMenuBar -bool true  # sketchybar replaces it
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
 log "Restarting affected apps"
