@@ -117,9 +117,6 @@ The bar config is vendored from [john-json/dotfiles](https://github.com/john-jso
   (red/orange/yellow/magenta/blue), smooth color transitions on switch,
   hover expansion, click to jump. Driven by AeroSpace via the
   `aerospace_change` event.
-- **front_app** sits centered too — note the Dynamic Island floats over that
-  spot; `launchctl bootout gui/$(id -u)/git.crissnb.dynamic-island` if you
-  want the front-app name unobstructed.
 - **Widgets**: media with artwork, cpu (compiled C helper), volume with
   device picker, wifi, calendar via icalBuddy, clock. Weather + search +
   menus popups from the original config.
