@@ -15,7 +15,8 @@ local battery = sbar.add("item", "widgets.battery", {
   },
   label = { font = { family = settings.font.numbers } },
   update_freq = 180,
-  popup = { align = "center" }
+  popup = { align = "center" },
+  background = { color = colors.bg1, corner_radius = 13, height = 26, drawing = true }
 })
 
 local remaining_time = sbar.add("item", {

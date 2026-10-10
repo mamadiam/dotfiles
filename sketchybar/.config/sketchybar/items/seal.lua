@@ -8,10 +8,11 @@ sbar.add("item", "seal", {
   icon = {
     string = "力",
     font = { family = settings.font.jp, size = 13.0 },
-    color = colors.sun,
+    color = colors.black,
     padding_left = 12,
     padding_right = 2,
   },
   label = { drawing = false },
+  background = { color = colors.accent, corner_radius = 12, height = 24, drawing = true },
   width = 0,
 })

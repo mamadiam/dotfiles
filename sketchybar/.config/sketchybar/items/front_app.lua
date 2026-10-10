@@ -14,6 +14,9 @@ local front_app = sbar.add("item", "front_app", {
     },
   },
   updates = true,
+  background = { color = colors.bg1, corner_radius = 13, height = 26, drawing = true },
+  padding_left = 10,
+  padding_right = 10,
 })
 
 front_app:subscribe("front_app_switched", function(env)

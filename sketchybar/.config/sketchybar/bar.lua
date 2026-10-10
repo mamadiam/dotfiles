@@ -4,16 +4,15 @@
 local colors = require("colors")
 
 -- Equivalent to the --bar domain
--- Floating bar (john-json style): inset from the top edge, rounded,
--- shadowed, solid dark backdrop. Widgets keep their own plates on top.
+-- Floating invisible bar: items float 4px below the top edge; only
+-- widgets/spaces carry their own pill plates. (john-json style inset)
 sbar.bar({
   height = 30,
   y_offset = 4,
   corner_radius = 6,
-  shadow = true,
-  blur_radius = 40,
+  shadow = false,
   border_width = 0,
-  color = colors.bar.bg,
+  color = colors.transparent,
   padding_right = 8,
   padding_left = 8,
 })
