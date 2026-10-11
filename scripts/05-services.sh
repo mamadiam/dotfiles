@@ -16,11 +16,5 @@ for svc in sketchybar borders; do
   fi
 done
 
-# --- Übersicht (desktop wallpaper clock) ---------------------------------------------
-if [[ -d "/Applications/Übersicht.app" ]]; then
-  log "Launching Übersicht"
-  open -g -a Übersicht 2>/dev/null || true
-fi
-
 warn "Reload AeroSpace config: aerospace reload-all (or re-login)"
 warn "Install tmux plugins inside tmux: prefix + I"

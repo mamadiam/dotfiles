@@ -50,7 +50,7 @@ dotfiles/
 ## The apps
 zsh · git · aerospace (tiling WM) · karabiner (Hyper key) · ghostty (terminal) ·
 tmux (ctrl-space prefix) · starship · yazi (files) · bat · btop ·
-sketchybar (Lua menu bar) · borders (focus ring) · fastfetch · ubersicht (desktop clock) ·
+sketchybar (menu bar) · borders (focus ring) · fastfetch ·
 lazygit (carbon-themed) · nvim (LazyVim starter)
 
 ## Theme
@@ -60,7 +60,7 @@ lazygit (carbon-themed) · nvim (LazyVim starter)
 | Where | Keys |
 |---|---|
 | Windows | `alt-h/j/k/l` focus · `alt-shift-h/j/k/l` move · `alt-f` fullscreen · `alt-t` float |
-| Workspaces | `alt-1..5` switch · `alt-shift-1..5` send window |
+| Workspaces | `alt-1..8` switch · `alt-shift-1..8` send window |
 | Global | Caps Lock = Hyper (hold) / Esc (tap) |
 | tmux | `ctrl-space` prefix · `prefix+h/j/k/l` panes · `prefix+r` reload · `prefix+C-s` save session |
 | Shell | `ctrl-r` history (atuin) · `fk` fix last command · `ai` opencode · `ask "..."` pipe LLM |

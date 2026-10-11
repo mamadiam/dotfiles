@@ -93,4 +93,3 @@ cask "font-space-mono-nerd-font"   # terminal data font
 cask "font-fraunces"               # display (desktop clock)
 cask "font-space-grotesk"          # UI labels
 cask "font-noto-sans-cjk"          # kanji seals (力)
-cask "ubersicht"                   # desktop wallpaper clock widget
