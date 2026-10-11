@@ -18,8 +18,10 @@ fi
 echo $$ > "$PIDFILE"
 trap 'rm -f "$PIDFILE"' EXIT
 
-# Self-terminate when sketchybar (our parent) dies and we get reparented
-parent_alive() { [[ "$(ps -o ppid= -p $PPID 2>/dev/null | tr -d ' ')" != "1" ]]; }
+# Self-terminate when sketchybar (our parent) dies. NB: $PPID is fixed at
+# launch and does NOT follow reparenting — check that the parent pid still
+# EXISTS rather than comparing against 1 (session launchd is not pid 1).
+parent_alive() { [[ -n "$(ps -o ppid= -p $PPID 2>/dev/null | tr -d ' ')" ]]; }
 
 last=""
 art_track=""

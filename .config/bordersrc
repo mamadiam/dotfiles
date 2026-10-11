@@ -1,10 +1,12 @@
 #!/bin/bash
 # JankyBorders — focus ring around the active window
-# sumi: the accent lives on the frame — vermillion
+# carbon: the accent lives on the frame — warm yellow; inactive windows get a
+# visible black outline (flameberry/Dotfiles pattern) so every window reads.
 
 style=round
 width=2.0
 hidpi=on
+order="a"
 
 active_color=0x99dcaf6c
-inactive_color=0x00000000  # transparent
+inactive_color=0xff000000  # visible black outline on unfocused windows
