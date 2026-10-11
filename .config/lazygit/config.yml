@@ -1,32 +1,30 @@
-# lazygit — carbon (john-json colors_dark inspired)
+# lazygit — tokyonight (Tokyonight Night)
 gui:
   nerdFontsVersion: "3"
   language: "en"
   showRandomTip: false
   theme:
     activeBorderColor:
-      - "#dcaf6c"
+      - "#7aa2f7"
       - bold
     inactiveBorderColor:
-      - "#2a2a2a"
+      - "#2f334d"
     searchingActiveBorderColor:
-      - "#dcaf6c"
+      - "#e0af68"
       - bold
     optionsTextColor:
-      - "#b4b4b4"
+      - "#7dcfff"
     selectedLineBgColor:
-      - "#2a2522"
+      - "#292e42"
     cherryPickedCommitFgColor:
-      - "#dcaf6c"
+      - "#bb9af7"
     cherryPickedCommitBgColor:
-      - "#98a8a9"
+      - "#9ece6a"
     markedBaseCommitFgColor:
-      - "#d09367"
+      - "#e0af68"
     unstagedChangesColor:
-      - "#c6755b"
+      - "#f7768e"
     defaultFgColor:
-      - "#cdcdcd"
+      - "#c0caf5"
   border: "rounded"
   shadow: false
-git:
-  overrideGpg: true
