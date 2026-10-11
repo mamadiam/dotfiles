@@ -40,7 +40,7 @@ dotfiles/
 ├── Brewfile              ALL apps + CLI tools (the package doc)
 ├── Brewfile.mobile       optional heavy GUI dev tools
 ├── macos/defaults.sh     dock/finder/keyboard/animation settings
-├── themes/               per-app theme variant files (carbon is live)
+├── themes/               per-app theme variant files (tokyonight is live)
 ├── .config/              ALL app configs — ONE stow package → ~/.config
 └── home/                 $HOME-level dotfiles — second stow package
 ```
@@ -54,7 +54,7 @@ sketchybar (Lua menu bar) · borders (focus ring) · fastfetch · ubersicht (des
 lazygit (carbon-themed) · nvim (LazyVim starter)
 
 ## Theme
-**Carbon** (muted charcoal + warm yellow `#dcaf6c`, john-json-inspired) is the live theme everywhere: Ghostty, tmux, SketchyBar, starship, yazi, bat, btop, lazygit and the Borders focus ring. `make theme NAME=catppuccin` switches to the mocha alternate. A Ryoku paper-and-ink theme is planned — infra ready in `scripts/theme.sh` + `themes/`.
+**TokyoNight** (deep indigo + blue `#7aa2f7` accent, tcmmichaelb139-inspired) is the live theme everywhere: Ghostty, tmux, SketchyBar, starship, yazi, bat, btop, lazygit and the Borders focus ring — on a floating translucent bar (radius 15, blur). `make theme NAME=carbon` / `NAME=catppuccin` switch alternates. Ryoku paper-and-ink is planned — infra ready in `scripts/theme.sh` + `themes/`.
 
 ## Key cheatsheet
 | Where | Keys |

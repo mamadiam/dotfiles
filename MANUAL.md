@@ -39,7 +39,7 @@ Three rules hold the whole system together. Everything else follows from them.
 
 **Everything is a file.** No hidden preference panes, no GUI config apps, no settings stored in opaque databases. Your prompt is a TOML file. Your bar is Lua. Your window manager is TOML. If you can edit a file, you can change anything.
 
-**Restraint is the aesthetic.** Clean surfaces, one accent, no visual noise. The current theme is **Carbon**; a Ryoku-inspired paper-and-ink theme is the next planned look. See [Themes](#6-themes).
+**Restraint is the aesthetic.** Clean surfaces, one accent, no visual noise. The current theme is **TokyoNight**; carbon (the earlier look) and catppuccin remain one command away. See [Themes](#6-themes).
 
 ---
 
@@ -161,18 +161,21 @@ tmux (`ctrl-space` prefix) gives sessions that survive everything: `prefix+h/j/k
 
 ## 6. Themes
 
-**Carbon** is the default theme, everywhere: Ghostty, tmux, SketchyBar,
+**TokyoNight** is the default theme, everywhere: Ghostty, tmux, SketchyBar,
 starship, yazi, bat, btop, lazygit and the Borders focus ring. One palette,
-one mood — muted charcoal with a warm yellow accent (`#dcaf6c`).
+one mood — deep indigo night with a blue accent (`#7aa2f7`). The bar is a
+floating translucent strip (radius 15, blur) in the style of
+[tcmmichaelb139's setup](https://github.com/tcmmichaelb139/.dotfiles).
 
 Re-apply it any time (also re-runs after you edit any theme file):
 
 ```sh
-make theme                    # carbon (default)
+make theme                    # tokyonight (default)
+make theme NAME=carbon        # the earlier charcoal + yellow look
 make theme NAME=catppuccin    # soft pastels
 ```
 
-Carbon — muted charcoal + warm yellow, from [john-json/dotfiles](https://github.com/john-json/dotfiles)' palette.
+Carbon — muted charcoal + warm yellow. Catppuccin — mocha pastels, mauve accent.
 
 **More themes are coming.** A deep-dive into [Ryoku](https://github.com/Ryoku-dev/ryoku)'s
 paper-and-ink design language ("sumi") is planned as the next major theme.
