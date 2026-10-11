@@ -28,6 +28,9 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
+# Breathing room in accordion layouts (alt-w) — cherry-picked from omerxx/dotfiles
+accordion-padding = 300
+
 [mode.main.binding]
 # Focus — vim keys + arrow keys, alt as mod
 alt-h = 'focus left'
