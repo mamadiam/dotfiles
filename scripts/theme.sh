@@ -43,32 +43,32 @@ sed_line() { # sed_line <file> <match> <replacement>
 
 # ── Simple color lines ──────────────────────────────────────────────────────
 log "ghostty  → $GHOSTTY_THEME"
-sed_line "$DOTFILES/ghostty/.config/ghostty/config" '^theme = .*' "theme = $GHOSTTY_THEME"
+sed_line "$DOTFILES/.config/ghostty/config" '^theme = .*' "theme = $GHOSTTY_THEME"
 
 log "bat      → $BAT_THEME"
-sed_line "$DOTFILES/bat/.config/bat/config" '^--theme=.*' "$BAT_THEME"
+sed_line "$DOTFILES/.config/bat/config" '^--theme=.*' "$BAT_THEME"
 
 log "starship → $STARSHIP_PALETTE"
-sed_line "$DOTFILES/starship/.config/starship.toml" '^palette = .*' "palette = \"$STARSHIP_PALETTE\""
+sed_line "$DOTFILES/.config/starship.toml" '^palette = .*' "palette = \"$STARSHIP_PALETTE\""
 
 log "btop     → $BTOP_THEME"
-sed_line "$DOTFILES/btop/.config/btop/btop.conf" '^theme = .*' "theme = \"$BTOP_THEME\""
+sed_line "$DOTFILES/.config/btop/btop.conf" '^theme = .*' "theme = \"$BTOP_THEME\""
 
 log "borders  → $BORDER_ACTIVE"
-sed_line "$DOTFILES/borders/.config/bordersrc" '^active_color=.*' "active_color=$BORDER_ACTIVE"
+sed_line "$DOTFILES/.config/bordersrc" '^active_color=.*' "active_color=$BORDER_ACTIVE"
 
 # ── Complex formats: copy the variant into place ────────────────────────────
 log "tmux     → $THEME"
-f="$DOTFILES/themes/tmux-$THEME.conf"; [[ -f "$f" ]] && cp "$f" "$DOTFILES/tmux/.config/tmux/theme.conf"
+f="$DOTFILES/themes/tmux-$THEME.conf"; [[ -f "$f" ]] && cp "$f" "$DOTFILES/.config/tmux/theme.conf"
 
 log "yazi     → $THEME"
-f="$DOTFILES/themes/yazi-$THEME.toml"; [[ -f "$f" ]] && cp "$f" "$DOTFILES/yazi/.config/yazi/theme.toml"
+f="$DOTFILES/themes/yazi-$THEME.toml"; [[ -f "$f" ]] && cp "$f" "$DOTFILES/.config/yazi/theme.toml"
 
 log "lazygit  → $THEME"
-f="$DOTFILES/themes/lazygit-$THEME.yml"; [[ -f "$f" ]] && cp "$f" "$DOTFILES/lazygit/.config/lazygit/config.yml"
+f="$DOTFILES/themes/lazygit-$THEME.yml"; [[ -f "$f" ]] && cp "$f" "$DOTFILES/.config/lazygit/config.yml"
 
 log "sketchybar → $THEME"
-f="$DOTFILES/themes/sketchybar/$THEME.lua"; [[ -f "$f" ]] && cp "$f" "$DOTFILES/sketchybar/.config/sketchybar/colors.lua" || warn "no sketchybar variant for $THEME"
+f="$DOTFILES/themes/sketchybar/$THEME.lua"; [[ -f "$f" ]] && cp "$f" "$DOTFILES/.config/sketchybar/colors.lua" || warn "no sketchybar variant for $THEME"
 
 # ── Apply now if the configs are already live symlinks ──────────────────────
 if [[ -L "$HOME/.config/sketchybar/colors.lua" ]]; then
