@@ -47,7 +47,7 @@
 	autostash = true
 
 [commit]
-	template = ~/.gitmessage
+	template = ~/.config/git/template
 
 # --- GitHub auth via gh CLI (no tokens in files) ------------------------------
 [credential "https://github.com"]
