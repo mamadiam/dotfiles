@@ -2,7 +2,7 @@
 config-version = 2
 
 # keep 1-5 alive when empty — sketchybar renders them at all times
-persistent-workspaces = ["1", "2", "3", "4", "5"]
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8"]
 # Docs: https://nikitabobko.github.io/AeroSpace/guide
 
 # Move windows with ctrl+cmd + drag (also enabled in defaults.sh)
@@ -74,11 +74,17 @@ alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-4 = 'move-node-to-workspace 4'
 alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
 
 # QoL (adopted from omerxx/dotfiles)
 alt-tab = 'workspace-back-and-forth'                          # bounce to the last workspace
@@ -98,17 +104,15 @@ backspace = ['close-all-windows-but-current', 'mode main']
 3 = 'main'
 4 = 'secondary'
 5 = 'secondary'
+6 = 'secondary'
+7 = 'secondary'
+8 = 'secondary'
 
 [gaps]
 inner = { horizontal = 8, vertical = 8 }
-# outer.top per monitor: clears the floating bar (34px footprint incl. offset) —
-# with the macOS menu bar hidden, nothing else reserves that space
-# NOTE: macOS 27 still reserves ~28px for the menu bar behind sketchybar.
-# top = 34 - 28 = 6 makes windows sit flush under the bar. If you ever hide
-# the menu bar properly (Control Center -> autohide), raise top back to 34.
-# per-monitor top: bar bottom sits at y=34; the built-in also reserves 28px
-# for the (hidden) menu bar — windows start at reserve + top
-outer.top = [{ monitor.main = 28 }, 46]
+# floating bar footprint: margin 5 + height 30 = 35px — outer.top 40 clears
+# it with 5px breathing room (both displays)
+outer.top = 40
 outer.left = 8
 outer.bottom = 8
 outer.right = 8
