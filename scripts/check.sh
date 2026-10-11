@@ -39,7 +39,7 @@ log "Checking Lua configs (sketchybar)"
 if command -v luac &>/dev/null; then
   while IFS= read -r -d '' f; do
     luac -p "$f" && ok "$f" || bad "$f"
-  done < <(find "$DOTFILES/sketchybar" \( -name '*.lua' -o -name 'sketchybarrc' \) -type f -print0)
+  done < <(find "$DOTFILES/.config/sketchybar" \( -name '*.lua' -o -name 'sketchybarrc' \) -type f -print0)
 else
   warn "luac not installed — skipping Lua syntax check"
 fi
