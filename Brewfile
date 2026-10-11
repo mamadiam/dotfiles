@@ -32,6 +32,7 @@ brew "gawk"
 
 # Make-life-easier (all high-star, battle-tested)
 brew "atuin"                    # 32k★ — magical shell history, encrypted sync across Macs
+brew "television"               # 31k★ — `tv` searchable TUI: files, git, docker, k8s channels (config vendored)
 brew "thefuck"                  # 80k★ — fixes your last command typo
 brew "git-delta"                # 25k★ — beautiful git diffs
 brew "fastfetch"                # system info on shell start
