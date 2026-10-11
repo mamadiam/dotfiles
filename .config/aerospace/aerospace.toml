@@ -21,6 +21,9 @@ on-window-detected = [
 ]
 
 
+# Cursor follows focus when it lands on the other display (omerxx adoption)
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
 # Normalizations: don't touch native fullscreen/tabs
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
@@ -70,6 +73,10 @@ alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
 alt-shift-4 = 'move-node-to-workspace 4'
 alt-shift-5 = 'move-node-to-workspace 5'
+
+# QoL (adopted from omerxx/dotfiles)
+alt-tab = 'workspace-back-and-forth'                          # bounce to the last workspace
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'  # ⌥⇧⇥: whole workspace to other monitor
 
 # Service mode: alt+shift+/ to enter, esc to exit
 alt-shift-slash = 'mode service'
