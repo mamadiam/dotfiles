@@ -5,22 +5,6 @@ local settings = require("settings")
 local smenu = require("items.widgets.smenu")
 local spaces = require("items.widgets.spaces")
 
-
-local add_space_bracket = sbar.add(
-    "bracket",
-    "add_space.bracket",
-    { add_space.name },
-    {
-        position = "left",
-        width = "dynamic",
-        padding_left = 10,
-        padding_right = 10,
-        background = {
-            color = colors.transparent,
-        },
-    }
-)
-
 -- Create the bracket and include the items
 local left_bar = sbar.add(
     "bracket",
