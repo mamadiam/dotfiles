@@ -7,3 +7,6 @@ dotfiles-backup*/
 tmux/.config/tmux/plugins/
 plugins
 .config/nvim/lazyvim.json
+.config/sketchybar/helpers/**/bin/
+.config/sketchybar/helpers/menus/bin/
+.DS_Store
