@@ -9,12 +9,17 @@ BACKUP_DIR="$HOME/dotfiles-backup-$(date +%Y%m%d-%H%M%S)"
 # Move any real file that blocks a stow link (never touches stow-owned
 # symlinks — the readlink guard prevents repo-file self-moves).
 backup_conflicts() {
-  local pkg rel target had_conflict=0
+  local pkg rel target pkg_target had_conflict=0
   for pkg in .config home; do
     [[ -d "$DOTFILES/$pkg" ]] || continue
+    # each package stows to its own target (.config -> ~/.config, home -> ~)
+    case "$pkg" in
+      .config) pkg_target="$HOME/.config" ;;
+      home)    pkg_target="$HOME" ;;
+    esac
     while IFS= read -r -d '' f; do
       rel="${f#"$DOTFILES/$pkg"/}"
-      target="$HOME/$rel"
+      target="$pkg_target/$rel"
       if [[ -L "$target" && ! -e "$target" ]]; then
         rm "$target"
         had_conflict=1
@@ -25,7 +30,9 @@ backup_conflicts() {
       fi
     done < <(find "$DOTFILES/$pkg" -type f -print0)
   done
-  (( had_conflict )) && warn "Existing configs backed up to: $BACKUP_DIR"
+  # NB: `(( 0 ))` returns 1 under set -e — use if, not bare &&, or the script
+  # dies right here whenever a run has no conflicts (before stow ever runs).
+  if (( had_conflict )); then warn "Existing configs backed up to: $BACKUP_DIR"; fi
 }
 
 log "Stowing .config -> ~/.config and home -> ~ (overwriting, with backup)"
