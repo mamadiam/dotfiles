@@ -24,9 +24,10 @@ This manual is how you drive it. It's organized in the order you'll need things:
 12. [Adding a package](#12-adding-a-package)
 13. [Making your own theme](#13-making-your-own-theme)
 14. [Updates & maintenance](#14-updates--maintenance)
-15. [Troubleshooting](#15-troubleshooting)
-16. [Uninstalling](#16-uninstalling)
-17. [Credits](#17-credits)
+15. [Multi-monitor & clamshell](#15-multi-monitor--clamshell)
+16. [Troubleshooting](#16-troubleshooting)
+17. [Uninstalling](#17-uninstalling)
+18. [Credits](#18-credits)
 
 ---
 
@@ -38,7 +39,7 @@ Three rules hold the whole system together. Everything else follows from them.
 
 **Everything is a file.** No hidden preference panes, no GUI config apps, no settings stored in opaque databases. Your prompt is a TOML file. Your bar is Lua. Your window manager is TOML. If you can edit a file, you can change anything.
 
-**Restraint is the aesthetic.** Clean surfaces, one accent, no visual noise. The current theme is **Catppuccin Mocha**; a Ryoku-inspired paper-and-ink theme is the next planned look. See [Themes](#6-themes).
+**Restraint is the aesthetic.** Clean surfaces, one accent, no visual noise. The current theme is **Carbon**; a Ryoku-inspired paper-and-ink theme is the next planned look. See [Themes](#6-themes).
 
 ---
 
@@ -47,12 +48,14 @@ Three rules hold the whole system together. Everything else follows from them.
 ### On a new Mac
 
 ```sh
-git clone https://github.com/YOU/dotfiles.git ~/Projects/dotfiles
+git clone https://github.com/mamadiam/dotfiles.git ~/Projects/dotfiles
 cd ~/Projects/dotfiles
 make install
 ```
 
-First run installs Homebrew itself (and Xcode CLT if missing), then ~55 packages, symlinks every config (backing up whatever it replaces to `~/dotfiles-backup-*`), applies macOS defaults, builds the tools that need building, and starts the services. Budget 15–20 minutes, then **log out and back in** — Karabiner and AeroSpace both want that.
+Private repo — authenticate first (`gh auth login`, or add your SSH key to GitHub).
+
+First run installs Homebrew itself (and Xcode CLT if missing), then ~60 packages, symlinks every config (backing up whatever it replaces to `~/dotfiles-backup-*`), applies macOS defaults, builds the tools that need building, and starts the services. Budget 15–20 minutes, then **log out and back in** — Karabiner and AeroSpace both want that.
 
 ### The one-time rituals
 
@@ -114,7 +117,8 @@ The bar config is vendored from [john-json/dotfiles](https://github.com/john-jso
 ```
 
 - **Spaces = colored dots in the center**, one color per workspace
-  (red/orange/yellow/magenta/blue), smooth color transitions on switch,
+  (red/orange/yellow/magenta/blue), instant color changes on switch
+  (direct `setColor` — the animated transition doesn't work on this build),
   hover expansion, click to jump. Driven by AeroSpace via the
   `aerospace_change` event.
 - **Widgets**: media with artwork, cpu (compiled C helper), volume with
@@ -128,7 +132,7 @@ The bar config is vendored from [john-json/dotfiles](https://github.com/john-jso
 The bar itself is invisible — only the pill plates float. Fonts are
 JetBrainsMono Nerd Font (his config used paid Operator Mono — swapped).
 
-Everything lives in `sketchybar/.config/sketchybar/`: `colors_dark.lua` /
+Everything lives in `.config/sketchybar/`: `colors_dark.lua` /
 `colors_light.lua` are the token files; `items/` is one file per section.
 Change, then `brew services restart sketchybar`.
 
@@ -159,7 +163,7 @@ tmux (`ctrl-space` prefix) gives sessions that survive everything: `prefix+h/j/k
 
 **Carbon** is the default theme, everywhere: Ghostty, tmux, SketchyBar,
 starship, yazi, bat, btop, lazygit and the Borders focus ring. One palette,
-one mood — soft pastels on a mocha base, mauve accent.
+one mood — muted charcoal with a warm yellow accent (`#dcaf6c`).
 
 Re-apply it any time (also re-runs after you edit any theme file):
 
@@ -177,7 +181,7 @@ it — see [Making your own theme](#13-making-your-own-theme).
 
 ## 7. The desktop clock
 
-[Übersicht](https://github.com/felixhageloh/uebersicht) renders `ubersicht/.config/ubersicht/widgets/sumi-clock.jsx`: a 132px Fraunces clock, the 力 seal, and a tracked uppercase date — resting on the wallpaper, bottom left, with a soft shadow for legibility on any background. Nothing else asks for attention.
+[Übersicht](https://github.com/felixhageloh/uebersicht) renders `.config/ubersicht/widgets/sumi-clock.jsx`: a 132px Fraunces clock, the 力 seal, and a tracked uppercase date — resting on the wallpaper, bottom left, with a soft shadow for legibility on any background. Nothing else asks for attention.
 
 Want it somewhere else? Edit the `bottom`/`left` percentages in the JSX. Want it gone? `open Übersicht` → menu → *Refresh all*, or quit the app. It comes back on login (that's `scripts/05-services.sh`).
 
@@ -242,10 +246,10 @@ All installed, all themed:
 ├── themes/               per-app theme variant files
 ├── macos/defaults.sh     macOS settings, idempotent
 ├── .config/              ALL app configs — ONE stow package → ~/.config
-│   ├── aerospace/ bat/ bordersrc btop/ fastfetch/ ghostty/ karabiner/
-│   ├── lazygit/ macchina/ nvim/ sketchybar/ starship.toml tmux/ ubersicht/ yazi/
+│   ├── aerospace/ bat/ bordersrc btop/ fastfetch/ ghostty/ git/
+│   ├── karabiner/ lazygit/ macchina/ nvim/ sketchybar/ starship.toml tmux/ ubersicht/ yazi/
 └── home/                 dotfiles at $HOME level — second stow package
-    ├── .zshrc .p10k.zsh .gitconfig .gitignore_global gitmessage
+    ├── .zshrc .p10k.zsh .gitconfig .gitignore_global
 ```
 
 **Stow is the whole magic.** Two packages: `.config` links into `~/.config`, `home` links into `$HOME`. `~/.zshrc` *is* `~/Projects/dotfiles/home/.zshrc`. Edit the file in the repo and it's live — there is no copy step, no sync, no build. That's why `dots commit -am "tweak"` from anywhere is the whole workflow.
@@ -318,37 +322,10 @@ fighting AeroSpace is a bad time. The yabai/skhd configs live in git history
 if you ever want them back.)
 
 **Prompt profile:** starship is the default. Prefer powerlevel10k (john-json's
-look, `.p10k.zsh` vendored in `p10k/`)? Set `ZSH_PROMPT=p10k` in
+look, config vendored at `home/.p10k.zsh`)? Set `ZSH_PROMPT=p10k` in
 `~/.zshrc.local` and open a new terminal.
 
-**System info:** `macchina` (`info` alias) — themed in `macchina/`.
-
-**The tiling setup is multi-monitor aware:** workspaces 1–3 live on the main
-display, 4–5 on the secondary (edit the `workspace-to-monitor-force-assignment`
-table in `aerospace.toml`). The floating bar renders on every display. `⌥⇧⇥` throws a whole
-workspace to the other monitor.
-
-**Lid closed, external monitor (clamshell mode)** — macOS does this natively,
-with three requirements:
-
-1. **Power connected** — on battery the Mac sleeps when the lid closes
-2. **External display connected** (HDMI/USB-C)
-3. Any external keyboard + mouse
-
-Then just close the lid. If it still sleeps:
-
-```sh
-sudo pmset -a disablesleep 1    # never sleep, even lid-closed on battery
-# undo (recommended when travelling — battery + heat):
-sudo pmset -a disablesleep 0
-```
-
-**One rule for AeroSpace multi-monitor:** keep "Displays have separate Spaces"
-OFF (System Settings → Desktop & Dock) — `macos/defaults.sh` already enforces
-it. Separate Spaces breaks AeroSpace focus and workspace placement in fun and
-creative ways.
-
-## 16. Troubleshooting
+**System info:** `macchina` (`info` alias) — themed in `.config/macchina/`.
 
 **The tiling setup is multi-monitor aware:** workspaces 1–3 live on the main
 display, 4–5 on the secondary (edit the `workspace-to-monitor-force-assignment`
@@ -400,7 +377,7 @@ creative ways.
 ```sh
 make clean          # removes every symlink; the repo keeps all configs
 brew services stop sketchybar borders
-brew bundle --file=(brew --repository)/… # or selectively: brew uninstall <pkg>
+# then selectively, if wanted: brew uninstall [--cask] <pkg>
 ```
 
 The repo itself is disposable and restorable — it's one `git clone` away. Apps installed via casks can be removed with `brew uninstall --cask <name>` if you ever want the Mac vanilla again. Everything it replaced during setup is still in `~/dotfiles-backup-*`.

@@ -4,9 +4,6 @@
 secrets/
 dotfiles-backup*/
 .DS_Store
-tmux/.config/tmux/plugins/
-plugins
+.config/tmux/plugins/
 .config/nvim/lazyvim.json
 .config/sketchybar/helpers/**/bin/
-.config/sketchybar/helpers/menus/bin/
-.DS_Store
