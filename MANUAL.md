@@ -16,18 +16,17 @@ This manual is how you drive it. It's organized in the order you'll need things:
 4. [The top bar — SketchyBar](#4-the-top-bar--sketchybar)
 5. [The terminal](#5-the-terminal)
 6. [Themes](#6-themes)
-7. [The desktop clock](#7-the-desktop-clock)
-8. [AI](#8-ai)
-9. [TUIs](#9-tuis)
-10. [Development tools](#10-development-tools)
-11. [How the dotfiles work](#11-how-the-dotfiles-work)
-12. [Adding a package](#12-adding-a-package)
-13. [Making your own theme](#13-making-your-own-theme)
-14. [Updates & maintenance](#14-updates--maintenance)
-15. [Multi-monitor & clamshell](#15-multi-monitor--clamshell)
-16. [Troubleshooting](#16-troubleshooting)
-17. [Uninstalling](#17-uninstalling)
-18. [Credits](#18-credits)
+7. [AI](#7-ai)
+8. [TUIs](#8-tuis)
+9. [Development tools](#9-development-tools)
+10. [How the dotfiles work](#10-how-the-dotfiles-work)
+11. [Adding a package](#11-adding-a-package)
+12. [Making your own theme](#12-making-your-own-theme)
+13. [Updates & maintenance](#13-updates--maintenance)
+14. [Multi-monitor & clamshell](#14-multi-monitor--clamshell)
+15. [Troubleshooting](#15-troubleshooting)
+16. [Uninstalling](#16-uninstalling)
+17. [Credits](#17-credits)
 
 ---
 
@@ -94,8 +93,8 @@ The mouse is for browsers. Everything else is keys.
 
 | Keys | Action |
 |---|---|
-| `alt-1..5` | Jump to workspace |
-| `alt-shift-1..5` | Throw window to workspace |
+| `alt-1..8` | Jump to workspace |
+| `alt-shift-1..8` | Throw window to workspace |
 | Click a number in the bar | Same thing |
 
 Bonus, from macOS itself: hold `ctrl+cmd` and drag **anywhere on a window** to move it (no title bar needed). And `ctrl+cmd+click` still drags.
@@ -108,32 +107,21 @@ Uncomment the `[on-window-detected]` block at the bottom of `aerospace/.config/a
 
 ## 4. The top bar — SketchyBar
 
-The bar config is vendored from [john-json/dotfiles](https://github.com/john-json/dotfiles)
-(MIT; originally FelixKratz-style, adapted) — a three-section layout:
+The bar is [tcmmichaelb139's shell configuration](https://github.com/tcmmichaelb139/.dotfiles),
+vendored and themed TokyoNight: a floating solid strip (radius 15, blur) with
+bordered pills — space numbers and the front-app on the left, Spotify center
+(green pill, only while playing), and clock, date, battery, volume and CPU on
+the right.
 
-```
-(力 menu) (space dots ·· ●·· ··○··)   [ FRONT-APP ]   (media) (cpu) (vol) (wifi) (cal) (clock)
-└ left: spaces as colored dots          └ center          └ right: widgets
-```
+- **Spaces**: `1`–`8`, red when focused, click to jump (driven by AeroSpace).
+- **Spotify**: track scrolls in a green-bordered pill; hidden when paused.
+  State comes from `plugins/media_event` (AppleScript poller — the native
+  media events don't fire on modern macOS).
+- **Zen**: `plugins/zen.sh`-style hiding isn't wired; edit `sketchybarrc` to
+  drop items you don't want.
 
-- **Spaces = colored dots in the center**, one color per workspace
-  (red/orange/yellow/magenta/blue), instant color changes on switch
-  (direct `setColor` — the animated transition doesn't work on this build),
-  hover expansion, click to jump. Driven by AeroSpace via the
-  `aerospace_change` event.
-- **Widgets**: media with artwork, cpu (compiled C helper), volume with
-  device picker, wifi, calendar via icalBuddy, clock. Weather + search +
-  menus popups from the original config.
-- **Dark/light auto-switching**: `colors.lua` reads the macOS appearance and
-  loads `colors_dark.lua` / `colors_light.lua`.
-- **Compiled helpers**: `helpers/make` builds the cpu/network/menus C
-  binaries on startup (Xcode CLT required).
-
-The bar itself is invisible — only the pill plates float. Fonts are
-JetBrainsMono Nerd Font (his config used paid Operator Mono — swapped).
-
-Everything lives in `.config/sketchybar/`: `colors_dark.lua` /
-`colors_light.lua` are the token files; `items/` is one file per section.
+Everything lives in `.config/sketchybar/`: `variables.sh` (TokyoNight
+palette), `items/` (one file per widget), `plugins/` (update scripts).
 Change, then `brew services restart sketchybar`.
 
 ## 5. The terminal
@@ -180,17 +168,9 @@ Carbon — muted charcoal + warm yellow. Catppuccin — mocha pastels, mauve acc
 **More themes are coming.** A deep-dive into [Ryoku](https://github.com/Ryoku-dev/ryoku)'s
 paper-and-ink design language ("sumi") is planned as the next major theme.
 The theme infrastructure (`scripts/theme.sh` + `themes/`) is already built for
-it — see [Making your own theme](#13-making-your-own-theme).
+it — see [Making your own theme](#12-making-your-own-theme).
 
-## 7. The desktop clock
-
-[Übersicht](https://github.com/felixhageloh/uebersicht) renders `.config/ubersicht/widgets/sumi-clock.jsx`: a 132px Fraunces clock, the 力 seal, and a tracked uppercase date — resting on the wallpaper, bottom left, with a soft shadow for legibility on any background. Nothing else asks for attention.
-
-Want it somewhere else? Edit the `bottom`/`left` percentages in the JSX. Want it gone? `open Übersicht` → menu → *Refresh all*, or quit the app. It comes back on login (that's `scripts/05-services.sh`).
-
----
-
-## 8. AI
+## 7. AI
 
 The agents are first-class citizens here, not add-ons.
 
@@ -213,7 +193,7 @@ export OPENAI_API_KEY="sk-…"
 
 ---
 
-## 9. TUIs
+## 8. TUIs
 
 All installed, all themed:
 
@@ -226,7 +206,7 @@ All installed, all themed:
 
 ---
 
-## 10. Development tools
+## 9. Development tools
 
 - **Node** — `fnm` + LTS. Drop a `.nvmrc` in a project; the shell switches on `cd`.
 - **Python** — `uv`. `uv venv`, `uv pip install`, `uv run`. No pyenv, no poetry, no venv activation dance.
@@ -238,7 +218,7 @@ All installed, all themed:
 
 ---
 
-## 11. How the dotfiles work
+## 10. How the dotfiles work
 
 ```
 ~/Projects/dotfiles/
@@ -250,7 +230,7 @@ All installed, all themed:
 ├── macos/defaults.sh     macOS settings, idempotent
 ├── .config/              ALL app configs — ONE stow package → ~/.config
 │   ├── aerospace/ bat/ bordersrc btop/ fastfetch/ ghostty/ git/
-│   ├── karabiner/ lazygit/ macchina/ nvim/ sketchybar/ starship.toml tmux/ ubersicht/ yazi/
+│   ├── karabiner/ lazygit/ macchina/ nvim/ sketchybar/ starship.toml tmux/ yazi/
 └── home/                 dotfiles at $HOME level — second stow package
     ├── .zshrc .p10k.zsh .gitconfig .gitignore_global
 ```
@@ -273,7 +253,7 @@ dots add -A && dots commit -m "fix: ghostty padding" && dots push
 
 ---
 
-## 12. Adding a package
+## 11. Adding a package
 
 Adding an app config takes five minutes, and the orchestrator never changes:
 
@@ -288,7 +268,7 @@ Everything that applies to one app stays in one directory. If you need something
 
 ---
 
-## 13. Making your own theme
+## 12. Making your own theme
 
 A theme is two things: color lines in `scripts/theme.sh` (simple cases) and variant files under `themes/` (complex formats).
 
@@ -302,7 +282,7 @@ Rule from the source of the design language: don't define values inside componen
 
 ---
 
-## 14. Updates & maintenance
+## 13. Updates & maintenance
 
 ```sh
 make update     # git pull + re-apply everything (skips brew)
@@ -317,7 +297,7 @@ Syncing across Macs: commit here, `make update` there. History, dotfiles, themes
 
 ---
 
-## 15. Multi-monitor & clamshell
+## 14. Multi-monitor & clamshell
 
 **Window management is AeroSpace.** (yabai + Hammerspoon profiles were
 evaluated and dropped — both want the same hotkeys and a second WM engine
@@ -355,7 +335,7 @@ OFF (System Settings → Desktop & Dock) — `macos/defaults.sh` already enforce
 it. Separate Spaces breaks AeroSpace focus and workspace placement in fun and
 creative ways.
 
-## 16. Troubleshooting
+## 15. Troubleshooting
 
 **A window won't tile** — it's floating or fullscreen. `alt-t` to tile it, `alt-f` to leave fullscreen. Some apps float better (accessibility quirks); add an `on-window-detected` rule to float them permanently.
 
@@ -375,7 +355,7 @@ creative ways.
 
 ---
 
-## 17. Uninstalling
+## 16. Uninstalling
 
 ```sh
 make clean          # removes every symlink; the repo keeps all configs
@@ -387,7 +367,7 @@ The repo itself is disposable and restorable — it's one `git clone` away. Apps
 
 ---
 
-## 18. Credits
+## 17. Credits
 
 This system stands on tall shoulders:
 
