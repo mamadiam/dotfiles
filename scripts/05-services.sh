@@ -3,9 +3,9 @@
 source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
 # --- tpm (tmux plugin manager) --------------------------------------------------
-if [[ ! -d "$HOME/.tmux/plugins/tpm" ]] && command -v git &>/dev/null; then
+if [[ ! -d "$HOME/.config/tmux/plugins/tpm" ]] && command -v git &>/dev/null; then
   log "Installing tpm (tmux plugin manager)"
-  git clone --quiet https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+  git clone --quiet https://github.com/tmux-plugins/tpm "$HOME/.config/tmux/plugins/tpm"
 fi
 
 # --- sketchybar + borders daemons --------------------------------------------------
