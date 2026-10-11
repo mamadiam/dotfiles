@@ -20,6 +20,12 @@ if command -v gh &>/dev/null; then
   gh extension install github/gh-copilot 2>/dev/null || true
 fi
 
+# --- gh-dash (GitHub PR/issue triage TUI; config vendored in .config/gh-dash/) --
+if command -v gh &>/dev/null && ! gh extension list 2>/dev/null | grep -q "dlvhdr/gh-dash"; then
+  log "Installing gh-dash extension"
+  gh extension install dlvhdr/gh-dash 2>/dev/null || true
+fi
+
 # --- pi — AI agent toolkit (114k★) ----------------------------------------------
 if ! command -v pi &>/dev/null; then
   log "Installing pi (AI coding agent)"
