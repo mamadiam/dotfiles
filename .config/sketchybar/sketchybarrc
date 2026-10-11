@@ -2,6 +2,12 @@
 
 source "$HOME/.config/sketchybar/variables.sh" # Loads all defined colors
 
+# Register external events BEFORE items subscribe to them — v2 drops
+# subscriptions to events that don't exist yet.
+sketchybar --add event aerospace_change
+sketchybar --add event spotify_media
+"$HOME/.config/sketchybar/plugins/media_event" &
+
 # General bar and defaults
 
 sketchybar --bar height=30 \
@@ -51,8 +57,6 @@ source "$ITEM_DIR/cpu.sh"
 # Spotify state: native media_change is dead on macOS 27 (MediaRemote gated),
 # so plugins/media_event polls Spotify's AppleScript dictionary and fires the
 # custom `spotify_media` event consumed by plugins/spotify.sh.
-sketchybar --add event spotify_media
-"$HOME/.config/sketchybar/plugins/media_event" &
 
 #################### Finalizing Setup ####################
 

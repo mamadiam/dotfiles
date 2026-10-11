@@ -2,18 +2,21 @@
 
 source "$HOME/.config/sketchybar/variables.sh" # Loads all defined colors
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+# Called on every aerospace_change for each space item ($NAME = "space.N").
+# NOTE: sketchybar v2's CLI --trigger does not forward KEY=VALUE env vars, so
+# instead of trusting $AEROSPACE_FOCUSED_WORKSPACE we ask AeroSpace directly.
 
-SPACE_CLICK_SCRIPT="aerospace workspace $SID 2>/dev/null"
+N="${NAME#space.}"
 
-if [ "$SELECTED" = "true" ]; then
+# the hook can fire mid-switch — let AeroSpace settle, then ask
+sleep 0.5
+
+if [ "$FOCUSED" = "$N" ]; then
 	sketchybar --animate tanh 5 --set "$NAME" \
 		icon.color="$RED" \
-		icon="${SPACE_ICONS[$SID - 1]}" \
-		click_script="$SPACE_CLICK_SCRIPT"
+		icon="$N"
 else
 	sketchybar --animate tanh 5 --set "$NAME" \
 		icon.color="$COMMENT" \
-		icon="${SPACE_ICONS[$SID - 1]}" \
-		click_script="$SPACE_CLICK_SCRIPT"
+		icon="$N"
 fi

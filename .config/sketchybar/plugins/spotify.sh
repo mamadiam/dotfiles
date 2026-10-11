@@ -29,5 +29,10 @@ elif [ "$STATE" = "paused" ]; then
 		label.color="$COMMENT" \
 		drawing=on
 else
-	sketchybar --set "$NAME" drawing=off
+	# Spotify not running — dim pill, no label
+	sketchybar --set "$NAME" \
+		icon.color="$COMMENT" \
+		background.border_color="$COMMENT" \
+		label="" \
+		drawing=on
 fi
