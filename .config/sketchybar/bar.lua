@@ -7,6 +7,7 @@ local sbar = require("sketchybar")
 sbar.bar({
     position = "top",
     height = 30,
+    drawing = true,
     y_offset = 4,
     padding_right = 5,
     padding_left = 5,
