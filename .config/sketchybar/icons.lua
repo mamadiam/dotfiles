@@ -40,6 +40,7 @@ local icons = {
         mission_control = "􀏨",
         swap = "􀺊",
         user = "􀓤",
+        bell = "􀋚",
 
         weather = {
             sun = "􀆬",
@@ -95,6 +96,7 @@ local icons = {
         gear = "",
         cpu = "",
         clipboard = "Missing Icon",
+        bell = "󰂚",
         switch = {
             on = "􁏮",
             off = "􁏯"

@@ -9,6 +9,7 @@ local volume   = require("items.widgets.volume")
 local wifi     = require("items.widgets.wifi")
 local media    = require("items.widgets.media")
 local weather  = require("items.widgets.weather")
+local github   = require("items.widgets.github")
 
 
 
@@ -16,7 +17,7 @@ local systray   =
     sbar.add(
         "bracket",
         "systray.bracket",
-        { search.name, wifi.name, media.name, weather.name },
+        { search.name, wifi.name, media.name, weather.name, github.name },
         {
             display = 1,
             width = "dynamic",
