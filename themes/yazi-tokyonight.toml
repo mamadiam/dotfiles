@@ -1,0 +1,76 @@
+# yazi — tokyonight (Tokyonight Night)
+[manager]
+cwd = { fg = "#7dcfff" }
+hovered = { fg = "#1a1b26", bg = "#7aa2f7" }
+preview_hovered = { fg = "#1a1b26", bg = "#7aa2f7" }
+find_keyword = { fg = "#e0af68", bold = true, underline = true }
+find_position = { fg = "#bb9af7", bold = true }
+marker_selected = { fg = "#9ece6a", bg = "#9ece6a" }
+marker_copied = { fg = "#e0af68", bg = "#e0af68" }
+marker_cut = { fg = "#f7768e", bg = "#f7768e" }
+tab_active = { fg = "#1a1b26", bg = "#7aa2f7" }
+tab_inactive = { fg = "#565f89", bg = "#16161e" }
+tab_width = 1
+count_copied = { fg = "#1a1b26", bg = "#e0af68" }
+count_selected = { fg = "#1a1b26", bg = "#9ece6a" }
+count_cut = { fg = "#1a1b26", bg = "#f7768e" }
+border_symbol = "│"
+border_style = { fg = "#2f334d" }
+symlink = { fg = "#7dcfff", italic = true }
+
+[status]
+separator_open = ""
+separator_close = ""
+separator_style = { fg = "#16161e", bg = "#16161e" }
+mode_normal = { fg = "#1a1b26", bg = "#7aa2f7", bold = true }
+mode_select = { fg = "#1a1b26", bg = "#9ece6a", bold = true }
+mode_unset = { fg = "#1a1b26", bg = "#bb9af7", bold = true }
+
+[input]
+border = { fg = "#2f334d" }
+title = {}
+value = {}
+selected = { reversed = true }
+
+[cmp]
+border = { fg = "#2f334d" }
+
+[files]
+executable = { fg = "#9ece6a" }
+
+[pick]
+border = { fg = "#2f334d" }
+active = { fg = "#1a1b26", bg = "#bb9af7" }
+inactive = {}
+
+[confirm]
+border = { fg = "#2f334d" }
+title = { fg = "#e0af68" }
+
+[tasks]
+border = { fg = "#2f334d" }
+title = {}
+hovered = { fg = "#e0af68" }
+
+[which]
+mask = { bg = "#292e42" }
+cand = { fg = "#7dcfff" }
+rest = { fg = "#565f89" }
+desc = { fg = "#bb9af7" }
+separator = "  "
+selected = { fg = "#1a1b26", bg = "#7aa2f7" }
+
+[help]
+on = { fg = "#7dcfff" }
+run = { fg = "#bb9af7" }
+desc = { fg = "#a9b1d6" }
+hovered = { fg = "#1a1b26", bg = "#bb9af7", bold = true }
+footer = { fg = "#16161e", bg = "#c0caf5" }
+
+[notify]
+title_info = { fg = "#7dcfff" }
+title_warn = { fg = "#e0af68" }
+title_error = { fg = "#f7768e" }
+
+[spotlight]
+border = { fg = "#7aa2f7" }

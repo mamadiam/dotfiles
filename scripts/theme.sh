@@ -11,14 +11,21 @@
 # affected apps) — the configs are symlinks into this repo.
 source "$(dirname "${BASH_SOURCE[0]}")/lib.sh"
 
-THEME="${1:-carbon}"
+THEME="${1:-tokyonight}"
 case "$THEME" in
-  carbon|catppuccin) ;;
-  *) echo "unknown theme: $THEME (carbon | catppuccin)" >&2; exit 1 ;;
+  tokyonight|carbon|catppuccin) ;;
+  *) echo "unknown theme: $THEME (tokyonight | carbon | catppuccin)" >&2; exit 1 ;;
 esac
 
 # ── Palettes ────────────────────────────────────────────────────────────────
-if [[ "$THEME" == "carbon" ]]; then
+if [[ "$THEME" == "tokyonight" ]]; then
+  # tokyonight — Tokyonight Night (tcmmichaelb139-inspired setup)
+  GHOSTTY_THEME="tokyonight"
+  BAT_THEME='--theme=ansi'                 # inherits the terminal palette
+  STARSHIP_PALETTE='tokyonight'
+  BTOP_THEME='tokyo_night'                 # bundled with btop >= 1.3
+  BORDER_ACTIVE='0xff7aa2f7'               # tokyonight blue
+elif [[ "$THEME" == "carbon" ]]; then
   # carbon — muted dark scheme inspired by john-json/dotfiles
   GHOSTTY_THEME="carbon"
   BAT_THEME='--theme=ansi'                 # inherits the terminal palette

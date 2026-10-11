@@ -1,0 +1,30 @@
+# lazygit — tokyonight (Tokyonight Night)
+gui:
+  nerdFontsVersion: "3"
+  language: "en"
+  showRandomTip: false
+  theme:
+    activeBorderColor:
+      - "#7aa2f7"
+      - bold
+    inactiveBorderColor:
+      - "#2f334d"
+    searchingActiveBorderColor:
+      - "#e0af68"
+      - bold
+    optionsTextColor:
+      - "#7dcfff"
+    selectedLineBgColor:
+      - "#292e42"
+    cherryPickedCommitFgColor:
+      - "#bb9af7"
+    cherryPickedCommitBgColor:
+      - "#9ece6a"
+    markedBaseCommitFgColor:
+      - "#e0af68"
+    unstagedChangesColor:
+      - "#f7768e"
+    defaultFgColor:
+      - "#c0caf5"
+  border: "rounded"
+  shadow: false

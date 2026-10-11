@@ -3,7 +3,20 @@
 # Only what matters: dir, git, duration, language versions, exit status.
 
 add_newline = false
-palette = "carbon"
+palette = "tokyonight"
+
+[palettes.tokyonight]
+paper = "#1a1b26"
+ink = "#c0caf5"
+ink_dim = "#a9b1d6"
+ink_muted = "#737aa2"
+ink_faint = "#565f89"
+sun = "#7aa2f7"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+peach = "#ff9e64"
 
 [palettes.carbon]
 paper = "#131313"
