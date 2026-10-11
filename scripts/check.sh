@@ -35,14 +35,10 @@ while IFS= read -r -d '' f; do
     && ok "$f" || bad "$f"
 done < <(find "$DOTFILES" -name '*.json' -print0)
 
-log "Checking Lua configs (sketchybar)"
-if command -v luac &>/dev/null; then
-  while IFS= read -r -d '' f; do
-    luac -p "$f" && ok "$f" || bad "$f"
-  done < <(find "$DOTFILES/.config/sketchybar" \( -name '*.lua' -o -name 'sketchybarrc' \) -type f -print0)
-else
-  warn "luac not installed — skipping Lua syntax check"
-fi
+log "Checking shell configs (sketchybar)"
+while IFS= read -r -d '' f; do
+  bash -n "$f" && ok "$f" || bad "$f"
+done < <(find "$DOTFILES/.config/sketchybar" \( -name '*.sh' -o -name 'sketchybarrc' -o -name 'variables.sh' \) -type f -not -path "*/plugins/bin/*" -print0)
 
 log "Checking stow packages are non-empty"
 for name in "${STOW_PKGS[@]}"; do
