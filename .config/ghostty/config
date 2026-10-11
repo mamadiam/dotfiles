@@ -17,6 +17,10 @@ window-padding-balance = true
 background-opacity = 0.95
 background-blur-radius = 60
 
+# Starfield GLSL (vendored from omerxx/dotfiles): parallax stars drifting
+# behind the glass. Toggle by commenting/uncommenting this line.
+custom-shader = ~/.config/ghostty/shaders/space.glsl
+
 # No titlebar chrome — the theme IS the chrome
 macos-titlebar-style = hidden
 window-decoration = false
