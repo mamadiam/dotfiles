@@ -1,0 +1,8 @@
+# atuin — encrypted, synced shell history (bound to ctrl-r in ~/.zshrc)
+# Active settings adopted from omerxx/dotfiles; everything else at defaults.
+
+style = "compact"      # inline search under the prompt, no fullscreen takeover
+enter_accept = true    # enter runs the selected command; up-arrow recalls it for editing
+
+[sync]
+records = true         # record-store sync — history follows you across all your Macs
