@@ -24,6 +24,9 @@ on-window-detected = [
 # Cursor follows focus when it lands on the other display (omerxx adoption)
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+# Refresh the bar's workspace dots on focus changes too (hasnarobert adoption)
+on-focus-changed = ['exec-and-forget sketchybar --trigger aerospace_change']
+
 # Normalizations: don't touch native fullscreen/tabs
 enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true

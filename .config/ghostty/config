@@ -38,6 +38,10 @@ macos-option-as-alt = true
 # Hide the cursor while typing (omerxx adoption)
 mouse-hide-while-typing = true
 
+# shift+enter inserts a real newline — multi-line input for AI prompts
+# (hasnarobert adoption; \x1b\r = escaped newline for shells and TUIs)
+keybind = shift+enter=text:\x1b\r
+
 # Selection copies to clipboard, like tmux
 copy-on-select = clipboard
 
