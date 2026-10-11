@@ -11,8 +11,8 @@ fi
 # --- sketchybar + borders daemons --------------------------------------------------
 for svc in sketchybar borders; do
   if brew list --cask &>/dev/null | grep -q "^$svc\$" || brew list &>/dev/null | grep -q "^$svc\$"; then
-    log "Restarting $svc service"
-    brew services restart "$svc" 2>/dev/null || warn "start $svc manually after first reboot"
+    log "Starting $svc (brew services registers auto-start on login)"
+    brew services start "$svc" 2>/dev/null || warn "start $svc manually after first reboot"
   fi
 done
 
