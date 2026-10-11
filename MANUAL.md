@@ -134,7 +134,7 @@ Change, then `brew services restart sketchybar`.
 
 ## 5. The terminal
 
-**Ghostty** draws it: sumi or themed colors, JetBrainsMono Nerd Font, copy-on-select.
+**Ghostty** draws it: carbon or catppuccin themed colors, JetBrainsMono Nerd Font, copy-on-select.
 
 **Plain zsh** runs it — deliberately no oh-my-zsh. What you get instead:
 
@@ -239,13 +239,16 @@ All installed, all themed:
 ├── install.sh            thin orchestrator → scripts/01..05
 ├── scripts/              one job per script, runnable standalone
 ├── Brewfile              every package (the real package doc)
-├── themes/               palette variants for the theme switcher
+├── themes/               per-app theme variant files
 ├── macos/defaults.sh     macOS settings, idempotent
-└── <app>/                one stow package per app, mirrors $HOME
-    └── .config/app/…     ghostty/, tmux/, sketchybar/, aerospace/, …
+├── .config/              ALL app configs — ONE stow package → ~/.config
+│   ├── aerospace/ bat/ bordersrc btop/ fastfetch/ ghostty/ karabiner/
+│   ├── lazygit/ macchina/ nvim/ sketchybar/ starship.toml tmux/ ubersicht/ yazi/
+└── home/                 dotfiles at $HOME level — second stow package
+    ├── .zshrc .p10k.zsh .gitconfig .gitignore_global gitmessage
 ```
 
-**Stow is the whole magic.** `stow` symlinks each package's contents into `$HOME`. `~/.zshrc` *is* `~/Projects/dotfiles/zsh/.zshrc`. Edit the file in the repo and it's live — there is no copy step, no sync, no build. That's why `dots commit -am "tweak"` from anywhere is the whole workflow.
+**Stow is the whole magic.** Two packages: `.config` links into `~/.config`, `home` links into `$HOME`. `~/.zshrc` *is* `~/Projects/dotfiles/home/.zshrc`. Edit the file in the repo and it's live — there is no copy step, no sync, no build. That's why `dots commit -am "tweak"` from anywhere is the whole workflow.
 
 **Before every commit:**
 
@@ -265,12 +268,14 @@ dots add -A && dots commit -m "fix: ghostty padding" && dots push
 
 ## 12. Adding a package
 
-App #17 takes five minutes, and the orchestrator never changes:
+Adding an app config takes five minutes, and the orchestrator never changes:
 
-1. `mkdir -p <app>/.config/<app>` and write the config, mirroring its real `$HOME` path
-2. Add `<app>` to `STOW_PKGS` in `scripts/02-stow.sh`
-3. New dependencies go in `Brewfile`; any setup logic in `scripts/04-tools.sh`
-4. `make check`, then `make stow`
+1. `mkdir -p .config/<app>` and write the config, mirroring its real `$HOME` path
+2. New dependencies go in `Brewfile`; any setup logic in `scripts/04-tools.sh`
+3. `make check`, then `make stow`
+
+(The `.config` package already covers everything under it — new apps need no
+registration. Home-level dotfiles go in `home/`.)
 
 Everything that applies to one app stays in one directory. If you need something another package already has, reference it — never copy it.
 
@@ -320,8 +325,7 @@ look, `.p10k.zsh` vendored in `p10k/`)? Set `ZSH_PROMPT=p10k` in
 
 **The tiling setup is multi-monitor aware:** workspaces 1–3 live on the main
 display, 4–5 on the secondary (edit the `workspace-to-monitor-force-assignment`
-table in `aerospace.toml`). The floating bar renders on every display; the
-notch pill and Dynamic Island stay on the notched one. `⌥⇧⇥` throws a whole
+table in `aerospace.toml`). The floating bar renders on every display. `⌥⇧⇥` throws a whole
 workspace to the other monitor.
 
 **Lid closed, external monitor (clamshell mode)** — macOS does this natively,
@@ -344,12 +348,11 @@ OFF (System Settings → Desktop & Dock) — `macos/defaults.sh` already enforce
 it. Separate Spaces breaks AeroSpace focus and workspace placement in fun and
 creative ways.
 
-## 16. Troubleshooting## 16. Troubleshooting
+## 16. Troubleshooting
 
 **The tiling setup is multi-monitor aware:** workspaces 1–3 live on the main
 display, 4–5 on the secondary (edit the `workspace-to-monitor-force-assignment`
-table in `aerospace.toml`). The floating bar renders on every display; the
-notch pill and Dynamic Island stay on the notched one. `⌥⇧⇥` throws a whole
+table in `aerospace.toml`). The floating bar renders on every display. `⌥⇧⇥` throws a whole
 workspace to the other monitor.
 
 **Lid closed, external monitor (clamshell mode)** — macOS does this natively,
@@ -404,7 +407,7 @@ The repo itself is disposable and restorable — it's one `git clone` away. Apps
 
 ---
 
-## 19. Credits
+## 18. Credits
 
 This system stands on tall shoulders:
 

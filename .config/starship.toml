@@ -1,5 +1,5 @@
 # starship — minimal prompt, Catppuccin Mocha palette
-# scripts/theme.sh sumi|catppuccin flips the active palette.
+# scripts/theme.sh carbon|catppuccin flips the active palette.
 # Only what matters: dir, git, duration, language versions, exit status.
 
 add_newline = false

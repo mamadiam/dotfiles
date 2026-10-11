@@ -49,7 +49,7 @@ Infrastructure (scripts, Brewfile, themes/) lives outside packages and is never 
 zsh · git · aerospace (tiling WM) · karabiner (Hyper key) · ghostty (terminal) ·
 tmux (ctrl-space prefix) · starship · yazi (files) · bat · btop ·
 sketchybar (Lua menu bar) · borders (focus ring) · fastfetch · ubersicht (desktop clock) ·
-lazygit (sumi-themed) · nvim (LazyVim starter)
+lazygit (carbon-themed) · nvim (LazyVim starter)
 
 ## Theme
 **Carbon** (john-json-inspired charcoal + yellow) is the default; `make theme NAME=catppuccin` for mocha. Ryoku paper-and-ink planned.
