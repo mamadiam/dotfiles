@@ -2,6 +2,11 @@ local colors = require("colors")
 local icons = require("icons")
 local settings = require("settings")
 
+-- spotify_media is a CUSTOM event fired by helpers/event_providers/media_event
+-- (a Spotify AppleScript poller — sketchybar's native media_change relies on
+-- the MediaRemote framework, which is gated on modern macOS and never fires).
+sbar.add("event", "spotify_media")
+
 local whitelist = {
     ["Spotify"] = true
 }
@@ -13,7 +18,7 @@ local HEIGHT_BEFORE = 0
 
 -- Helper function to create media items
 local function setup_media_items()
-    local media_icon = sbar.add("item", {
+    local media_icon = sbar.add("item", "media_icon", {
         position = "right",
         display = 1,
         background = {
@@ -31,7 +36,7 @@ local function setup_media_items()
         icon = {
             padding_left = 10,
             padding_right = 15,
-            drawing = true,
+            drawing = false, -- hidden until a whitelisted app plays (set below)
             string = icons.media.icon,
             color = colors.primary,
             font = {
@@ -50,15 +55,16 @@ local function setup_media_items()
         },
     })
 
-    local media_cover = sbar.add("item", {
+    local media_cover = sbar.add("item", "media_cover", {
         position = "popup." .. media_icon.name,
         background = {
             padding_left = 10,
             padding_right = 5,
             image = {
                 margin = 20,
-                string = "media.artwork",
                 scale = 2,
+                -- PNG path pushed by helpers/event_providers/media_event
+                string = "",
             },
 
             height = HEIGHT,
@@ -106,6 +112,10 @@ end
 
 -- Setup MiniPlayer items
 local media_icon, media_cover, media_artist, media_title = setup_media_items()
+
+-- Launch the poller (single-instance via pidfile; survives bar restarts and
+-- exits on its own when the bar dies)
+sbar.exec("$CONFIG_DIR/helpers/event_providers/bin/media_event")
 
 -- Add playback controls (hidden by default)
 local controls = {}
@@ -181,14 +191,23 @@ local function toggle_popup(visible)
 end
 
 -- Media change event for the popup (Shows on song change or playback start)
-media_icon:subscribe("media_change", function(env)
-    if whitelist[env.INFO.app] then
-        local is_playing = (env.INFO.state == "playing")
+-- Vars come from helpers/event_providers/media_event (APP/TITLE/ARTIST/STATE)
+media_icon:subscribe("spotify_media", function(env)
+    if whitelist[env.APP] then
+        local is_playing = (env.STATE == "playing")
+
+        -- Icon: carbon accent while playing, muted when paused, hidden when idle
+        media_icon:set({
+            icon = {
+                drawing = (env.STATE ~= "idle"),
+                color = is_playing and colors.yellow or colors.grey,
+            },
+        })
 
         -- Update media details
         media_cover:set({ drawing = is_playing })
-        media_artist:set({ drawing = is_playing, label = env.INFO.artist })
-        media_title:set({ drawing = is_playing, label = env.INFO.title })
+        media_artist:set({ drawing = is_playing, label = env.ARTIST })
+        media_title:set({ drawing = is_playing, label = env.TITLE })
 
         -- Show popup when media starts or changes, auto-hide after 5 seconds
         if is_playing then

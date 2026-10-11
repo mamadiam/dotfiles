@@ -4,6 +4,9 @@ local settings = require("settings")
 
 
 local front_app = require("items.widgets.front_app")
+-- The app-menu system (File/Edit/View on click) lives here — without this
+-- require, front_app's swap event fires into the void (orphaned until 2026-10)
+require("items.widgets.menus")
 
 
 

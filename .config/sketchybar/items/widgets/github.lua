@@ -98,7 +98,7 @@ end)
 
 -- Unread count: dim bell when zero or when `gh` is unavailable/unauthenticated
 local function update_count()
-    sbar.exec("gh api notifications --jq 'length'", function(count)
+    sbar.exec("gh api notifications --jq 'length' 2>/dev/null", function(count)
         local n = tonumber(tostring(count):match("%d+")) or 0
         if n > 0 then
             github:set({
