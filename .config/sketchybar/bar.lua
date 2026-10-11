@@ -1,20 +1,23 @@
 local colors = require("colors")
 local sbar = require("sketchybar")
 
--- Invisible floating bar: items float 4px below the top edge; only their
--- own plates (space dots, widget pills) are visible. Nothing else may
--- write to the bar domain — there is no bar-style switcher anymore.
+-- Floating TokyoNight bar (tcmmichaelb139 geometry): visible translucent
+-- strip, radius 15, blur; widgets render directly on it (pills keep their
+-- own bg2 plates). This replaces the old invisible-bar design.
 sbar.bar({
     position = "top",
     height = 30,
     drawing = true,
-    y_offset = 4,
+    y_offset = 5,
+    margin = 5,
     padding_right = 5,
     padding_left = 5,
-    color = colors.transparent,
-    border_width = 0,
+    color = colors.bar.bg_transparent,
+    corner_radius = 15,
+    border_width = 1,
+    border_color = colors.bar.border,
     shadow = false,
-    blur_radius = 0,
+    blur_radius = 20,
 })
 
 sbar.bar({ alpha = 1 })

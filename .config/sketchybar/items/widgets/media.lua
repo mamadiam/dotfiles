@@ -196,11 +196,12 @@ media_icon:subscribe("spotify_media", function(env)
     if whitelist[env.APP] then
         local is_playing = (env.STATE == "playing")
 
-        -- Icon: carbon accent while playing, muted when paused, hidden when idle
+        -- Icon: green while playing (spotify pill identity), muted when paused,
+        -- hidden when idle
         media_icon:set({
             icon = {
                 drawing = (env.STATE ~= "idle"),
-                color = is_playing and colors.yellow or colors.grey,
+                color = is_playing and colors.green or colors.grey,
             },
         })
 

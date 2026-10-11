@@ -1,66 +1,64 @@
+-- colors_light.lua — TokyoNight Day (tcmmichaelb139-inspired setup)
 return {
-    yellow = 0xffdcaf6c,
-    green = 0xff98a8a9,
-    red = 0xffc6755b,
-    blue = 0xffa2aab9,
-    darkblue = 0xff6275a1,
-    purple = 0xff6a6378,
-    monotone = 0xff98a8a9,
-    orange = 0xffd09367,
-    peach = 0xffe3aa8d,
-    quicksilver = 0xffdddddd,
-    pink = 0xff725955,
-    magenta = 0xff595066,
+    yellow = 0xff8c6c3e,
+    green = 0xff587539,
+    red = 0xfff52a65,
+    blue = 0xff2e7de9,
+    darkblue = 0xff2e7de9,
+    purple = 0xff9854f1,
+    monotone = 0xff6172b0,
+    orange = 0xffb15c00,
+    quicksilver = 0xff6172b0,
+    pink = 0xffd20069,
+    magenta = 0xff9854f1,
+
+    primary = 0xff2e7de9,
+    secondary = 0xffc4c8da,
 
     black = 0xff000000,
-    white = 0xffffffff,
-    grey = 0xffbcbcbc,
-    darkGrey = 0xff4b4b4b,
-
-    primary = 0xffa6a6a6,
-    secondary = 0xffdedede,
+    white = 0xff3760bf,
+    grey = 0xff848cb5,
 
     transparent = 0x00000000,
-    semi_transparent = 0x40ffffff,
-    border_transparent = 0x33ffffff,
+    semi_transparent = 0x403760bf,
+    border_transparent = 0x333760bf,
 
     icon = {
-        primary = 0xffababab,
-        secondary = 0xfff9f9f9,
+        grey = 0xff6172b0,
+        primary = 0xff2e7de9,
+        secondary = 0xffe1e2e7,
     },
     bar = {
-        bg = 0xffe6e6e6,
-        bg2 = 0xffffffff,
-        accent = 0xff000000,
-        active = 0xff9eaeb3,
-        selected = 0xff593c3c,
-        transparent = 0xe51e1e1e,
-        border = 0x1affffff,
-        secondary = 0xffd6d6d6,
-        white_transparent = 0x0dffffff,
-        inactive = 0xfff2f2f2,
-        icons = 0xff61817f,
-        foreground = 0xff857261,
+        bg = 0xffe1e2e7,
+        bg2 = 0xffc4c8da,
+        bg_transparent = 0x99e1e2e7,
+        accent = 0xff2e7de9,
+        active = 0xff007197,
+        selected = 0xffb6bfe1,
+        transparent = 0xe5e1e2e7,
+        border = 0xffa8aec2,
+        secondary = 0xffd0d5e3,
+        white_transparent = 0x0d3760bf,
+        inactive = 0xffe9e9ed,
+        icons = 0xff848cb5,
+        foreground = 0xff3760bf,
+        foreground_hover = 0xff007197,
     },
     media = {
-        primary = 0xff1c1c1c,
-        secondary = 0xffffffff,
+        primary = 0xcce1e2e7,
+        secondary = 0xff3760bf,
     },
     popup = {
-        text = 0xffffffff,
-        bg = 0xB3ffffff,
-        bg_alt = 0x99f2f2f2,
-        border = 0xffffffff,
-        hover = 0xff757575,
-        icons = 0xffe3e3e3,
-
-        bg1 = 0xff1c1c1c,
-        bg2 = 0xff242424,
+        text = 0xff3760bf,
+        bg = 0xe6e1e2e7,
+        bg_alt = 0xffc4c8da,
+        icons = 0xff848cb5,
+        border = 0xffa8aec2,
+        buttons = 0xff6172b0,
+        blur_radius = 60,
         with_alpha = function(color, alpha)
-            if alpha > 1.0 or alpha < 0.0 then
-                return color
-            end
-            return (color and 0x001e1e1e) or (math.floor(alpha * 255.0) < 24)
+            if alpha > 1.0 or alpha < 0.0 then return color end
+            return (color and 0x00e1e2e7) or (math.floor(alpha * 255.0) < 24)
         end
     }
 }

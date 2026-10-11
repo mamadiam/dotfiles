@@ -23,7 +23,7 @@ local github = sbar.add("item", "widgets.github", {
         drawing = false,
         string = "",
         font = { family = settings.font.numbers, style = settings.font.style_map["Bold"], size = 11 },
-        color = colors.yellow,
+        color = colors.blue,
         padding_right = settings.paddings,
     },
     update_freq = POLL_SECONDS,
@@ -36,7 +36,7 @@ local header = sbar.add("item", {
     width = 320,
     icon = {
         string = icons.bell,
-        color = colors.yellow,
+        color = colors.blue,
         font = { style = settings.font.style_map["Bold"], size = 13 },
         padding_left = 8,
     },
@@ -80,7 +80,7 @@ local footer = sbar.add("item", {
     width = 320,
     icon = {
         string = "↗",
-        color = colors.yellow,
+        color = colors.blue,
         font = { style = settings.font.style_map["Bold"], size = 12 },
         padding_left = 12,
     },
@@ -102,7 +102,7 @@ local function update_count()
         local n = tonumber(tostring(count):match("%d+")) or 0
         if n > 0 then
             github:set({
-                icon = { color = colors.yellow },
+                icon = { color = colors.blue },
                 label = { drawing = true, string = tostring(n) },
             })
         else
