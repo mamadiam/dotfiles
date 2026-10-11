@@ -12,7 +12,7 @@ sbar.bar({
     margin = 5,
     padding_right = 5,
     padding_left = 5,
-    color = colors.bar.bg_transparent,
+    color = colors.bar.bg, -- solid Tokyonight Night #1a1b26 (60%-alpha read as invisible on dark wallpapers)
     corner_radius = 15,
     border_width = 1,
     border_color = colors.bar.border,
