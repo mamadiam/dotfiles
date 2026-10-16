@@ -96,9 +96,9 @@ The mouse is for browsers. Everything else is keys.
 | `alt-1..8` | Jump to workspace |
 | `alt-shift-1..8` | Throw window to workspace (you stay put) |
 
-Workspaces are **dynamic**: an empty workspace vanishes (from AeroSpace and the
-bar) and reappears the moment you jump to it — `alt-6` from anywhere, for
-example. The focused number wears the app-name color.
+Workspaces are **dynamic with sticky slots**: a number appears when a window
+lands on it and **stays for the session** (dimmed once empty) — the focused
+one wears the app-name color. `alt-6` from anywhere, for example.
 | Click a number in the bar | Same thing |
 
 Bonus, from macOS itself: hold `ctrl+cmd` and drag **anywhere on a window** to move it (no title bar needed). And `ctrl+cmd+click` still drags.

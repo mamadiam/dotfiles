@@ -60,7 +60,7 @@ lazygit (carbon-themed) · nvim (LazyVim starter)
 | Where | Keys |
 |---|---|
 | Windows | `alt-h/j/k/l` focus · `alt-shift-h/j/k/l` move · `alt-f` fullscreen · `alt-t` float |
-| Workspaces | `alt-1..8` switch · `alt-shift-1..8` send app (you stay) · bar shows only live workspaces |
+| Workspaces | `alt-1..8` switch · `alt-shift-1..8` send app (you stay) · bar slots appear as workspaces fill and stick for the session |
 | Global | Caps Lock = Hyper (hold) / Esc (tap) |
 | tmux | `ctrl-space` prefix · `prefix+h/j/k/l` panes · `prefix+r` reload · `prefix+C-s` save session |
 | Shell | `ctrl-r` history (atuin) · `fk` fix last command · `ai` opencode · `ask "..."` pipe LLM |
