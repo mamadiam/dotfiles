@@ -109,9 +109,11 @@ backspace = ['close-all-windows-but-current', 'mode main']
 
 [gaps]
 inner = { horizontal = 8, vertical = 8 }
-# floating bar footprint: margin 5 + height 30 = 35px — outer.top 40 clears
-# it with 5px breathing room (both displays)
-outer.top = 40
+# floating bar footprint: margin 5 + height 30 = 35px. macOS 27 STILL reserves
+# ~28px for the hidden menu bar and AeroSpace stacks outer.top ON TOP of it —
+# so outer.top 10 puts windows at ~38px, a 3px breath under the bar.
+# (measured 2026-10-11: outer.top 40 → window top y=68, a 33px dead gap)
+outer.top = 10
 outer.left = 8
 outer.bottom = 8
 outer.right = 8
