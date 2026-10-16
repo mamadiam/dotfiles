@@ -12,6 +12,7 @@ YELLOW=0xffe0af68
 ORANGE=0xffff9e64
 RED=0xfff7768e
 BAR_COLOR=0xff1a1b26
+GREY=0xff939ab7
 COMMENT=0xff565f89
 
 # Tokyonight Day
