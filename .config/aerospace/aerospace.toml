@@ -1,9 +1,8 @@
 # AeroSpace — i3-like tiling WM (no SIP disabling needed)
 config-version = 2
 
-# keep 1-5 alive when empty — sketchybar renders them at all times
-persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8"]
-# Docs: https://nikitabobko.github.io/AeroSpace/guide
+# workspaces are DYNAMIC (GlazeWM-style): empty ones vanish, alt-N recreates.
+# the sketchybar bar mirrors this — it only shows existing workspaces.# Docs: https://nikitabobko.github.io/AeroSpace/guide
 
 # Move windows with ctrl+cmd + drag (also enabled in defaults.sh)
 start-at-login = true
